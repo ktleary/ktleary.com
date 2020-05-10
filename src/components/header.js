@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const TitleContainer = styled.div`
   display: flex;
-  margin: 36px 40px;
+  margin: 36px 40px 18px 36px;
   padding: 0;
   height: 46px;
   line-height: 46px;

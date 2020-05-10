@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/header'
 import ProfileLinks from './components/profile-links'
+import About from './components/about'
 import './App.css'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
       <Header />
       <ProfileLinks />
+      <About />
     </div>
   )
 }
