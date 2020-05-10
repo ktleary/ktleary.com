@@ -6,24 +6,29 @@ const ProfileLinksContainer = styled.div`
 `
 
 const ProfileLink = styled.a`
-  font-family: "Roboto Mono";
+  font-family: 'Roboto Mono';
   text-decoration: none;
-  font-size: 1em;
+  font-size: 3vh;
   color: rgba(255, 255, 255, 0.6);
+  transition: color 2s, font-weight 2s, transform 1s;
   &:hover {
-     color: ${({ hoverColor }) => hoverColor || 'rgba(255, 255, 255, 0.6)'};
-     `
+    color: ${({ hoverColor }) => hoverColor || 'rgba(255, 255, 255, 0.6)'};
+
+    font-weight: 600;
+  
+  }
+`
 const SlashStyle = styled.span`
-  font-size: 1em;
+  font-size: 3vh;
   color: rgba(255, 255, 255, 0.6);
 `
 
 const slash = () => <SlashStyle>&nbsp;/&nbsp;</SlashStyle>
 
 const linkData = [
-  { name: 'Github', url: 'https://github.com/ktleary', color: '#fff59d' },
-  { name: 'Profile', url: 'https://angel.co/u/ktleary', color: '#64b5f6' },
-  { name: 'Contact', url: 'mailto:kevin@ktleary.com', color: '#81c784' },
+  { name: 'Github', url: 'https://github.com/ktleary', color: '#2196f3' },
+  { name: 'Profile', url: 'https://angel.co/u/ktleary', color: '#ffeb3b' },
+  { name: 'Contact', url: 'mailto:kevin@ktleary.com', color: '#4caf50' },
 ]
 
 function generateLinks() {
