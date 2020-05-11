@@ -15,9 +15,9 @@ const ProfileLink = styled.a`
     color: ${({ hoverColor }) => hoverColor || 'rgba(255, 255, 255, 0.6)'};
 
     font-weight: 600;
-  
   }
 `
+
 const SlashStyle = styled.span`
   font-size: 3vh;
   color: rgba(255, 255, 255, 0.6);
@@ -33,7 +33,7 @@ const linkData = [
 
 function generateLinks() {
   return linkData.map((link, i) => (
-    <span>
+    <span key={link.url}>
       <ProfileLink href={link.url} hoverColor={link.color}>
         {link.name}
       </ProfileLink>

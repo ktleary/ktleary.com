@@ -1,4 +1,3 @@
-
 /*.App-header {
 	background-color: #111111;
 	min-height: 100vh;
@@ -10,3 +9,7 @@
 	color: white;
 }
 */
+
+/*animation: colorchange 50s;  animation-name followed by duration in seconds*/
+/* you could also use milliseconds (ms) or something like 2.5s */
+/*-webkit-animation: colorchange 50s; */

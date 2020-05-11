@@ -20,7 +20,49 @@ body {
 	width: 100%;
 }
 
+body.animated {
+	transition: color 1s, background 1s, transform 1s;
+	animation: colorchange 50s;
+	-webkit-animation: colorchange 50s;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
+}
+
+@keyframes colorchange {
+	10% {
+		background: #2f2f2f;
+	}
+	25% {
+		background: #575757;
+	}
+	50% {
+		background: #ff8a65;
+	}
+	75% {
+		background: #ffffff;
+	}
+	100% {
+		background: #039be5;
+	}
+}
+
+@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */ {
+	10% {
+		background: #2f2f2f;
+	}
+	25% {
+		background: #575757;
+	}
+	50% {
+		background: #ff8a65;
+	}
+	75% {
+		background: #eaeaea;
+	}
+	100% {
+		background: #ffffff;
+	}
 }
