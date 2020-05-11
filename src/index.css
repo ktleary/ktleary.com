@@ -52,7 +52,7 @@ code {
 }
 
 @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */ {
-	10% {
+		10% {
 		background: #2f2f2f;
 	}
 	25% {
@@ -62,9 +62,9 @@ code {
 		background: #ff8a65;
 	}
 	75% {
-		background: #eaeaea;
+		background: #ffffff;
 	}
 	100% {
-		background: #ffffff;
+		background: #039be5;
 	}
 }
