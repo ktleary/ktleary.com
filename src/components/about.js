@@ -6,12 +6,6 @@ const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
 `
 
-const changeColor = '#ff8a65'
-
-function changeBackground() {
-  document.body.classList.toggle('animated')
-}
-
 const AboutText = styled.div`
   color: ${({ textColor }) => textColor || 'rgba(255, 255, 255, 0.78)'};
   font-family: sans-serif;
@@ -26,7 +20,7 @@ export default function About() {
     <AboutContainer>
       <AboutText>I build innovative software</AboutText>
       <AboutText>for companies and organizations</AboutText>
-      <AboutText textColor={changeColor} onClick={changeBackground}>
+      <AboutText>
         changing the world
       </AboutText>
     </AboutContainer>
