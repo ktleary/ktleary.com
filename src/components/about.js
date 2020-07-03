@@ -8,11 +8,19 @@ const AboutContainer = styled.div`
 
 const AboutText = styled.div`
   color: ${({ textColor }) => textColor || 'rgba(255, 255, 255, 0.78)'};
-  font-family: sans-serif;
+  font-family: monospace;
   text-align: center;
-  font-size: 5vw;
+  font-size: 4.5vmin;
   margin: 4px 0;
   padding: 0;
+  border-bottom: ${({ borderBottom }) => borderBottom || 0}
+`
+
+const Underline = styled.div`
+  background: #ff8a65;
+  height: 2px;
+  margin: 14px auto;
+  width: 40vmin;
 `
 
 export default function About() {
@@ -23,6 +31,8 @@ export default function About() {
       <AboutText>
         changing the world
       </AboutText>
+      <Underline />
+
     </AboutContainer>
   )
 }
