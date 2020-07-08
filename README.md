@@ -1,3 +1,3 @@
-# ktleary.com-v2
+# ktleary.com
 
-- A simple one page React JS version.
+- dark react version.
