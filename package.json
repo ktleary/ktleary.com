@@ -16,16 +16,16 @@
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
