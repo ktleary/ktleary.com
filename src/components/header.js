@@ -1,28 +1,48 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const TitleContainer = styled.div`
   display: flex;
+  justify-content: center;
   margin: 0 auto;
-  padding: 36px 0 0 0;
+  padding: 0;
   vertical-align: middle;
+  text-align: center;
   width: 100%;
-`
+`;
 
 const Title = styled.h1`
-  font-family: monospace;
-  font-style: normal;
-  font-weight: normal;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: sans-serif;
   font-size: 7vmin;
+  font-weight: normal;
+  margin: 24px auto 0 auto;
   padding: 0;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.9);
-`
+`;
+
+const TitleLink = styled.a`
+  text-decoration: none;
+  &:hover: {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  &:visited: {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  &:visited:hover {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  &:active {
+    color: rgba(255, 255, 255, 0.87);
+  }
+`;
 
 export default function Header() {
   return (
     <TitleContainer>
-      <Title>ktleary</Title>
+      <TitleLink href="/" alt="ktleary.com">
+        <Title data-testid="header-title">ktleary</Title>
+      </TitleLink>
     </TitleContainer>
-  )
+  );
 }

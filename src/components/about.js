@@ -1,38 +1,40 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const AboutContainer = styled.div`
-  margin: 10vh 8px 0 8px;
-  color: rgba(255, 255, 255, 0.78);
-`
+  color: rgba(255, 255, 255, 0.87);
+  margin: auto;
+  max-width: 600px;
+  padding: 8px 16px;
+`;
 
-const AboutText = styled.div`
-  color: ${({ textColor }) => textColor || 'rgba(255, 255, 255, 0.78)'};
-  font-family: monospace;
-  text-align: center;
-  font-size: 4.5vmin;
-  margin: 4px 0;
-  padding: 0;
-  border-bottom: ${({ borderBottom }) => borderBottom || 0}
-`
-
-const Underline = styled.div`
-  background: #ff8a65;
-  height: 2px;
-  margin: 14px auto;
-  width: 40vmin;
-`
+const AboutLink = styled.a`
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration: none;
+  &:hover {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  &:visited {
+    color: rgba(255, 255, 255, 0.87);
+  }
+`;
 
 export default function About() {
   return (
     <AboutContainer>
-      <AboutText>I build innovative software</AboutText>
-      <AboutText>for companies and organizations</AboutText>
-      <AboutText>
-        changing the world
-      </AboutText>
-      <Underline />
-
+      <p>
+        I'm a web developer and founder of&nbsp;
+        <AboutLink alt="Broadcove" href="https://broadcove.io">
+          Broadcove
+        </AboutLink>
+        &nbsp;with over 15 years of experience working on the net. Much of
+        this time has been spent working with startups as an independent
+        contractor serving clients in the financial, healthcare and e-commerce
+        spaces.
+      </p>
+      <p>Thanks for stopping by.</p>
+      <p>Kevin Leary</p>
     </AboutContainer>
-  )
+  );
 }
