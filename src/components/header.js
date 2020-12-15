@@ -13,7 +13,7 @@ const TitleContainer = styled.div`
 
 const Title = styled.h1`
   align-items: center;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.76);
   font-family: sans-serif;
   font-size: 7vmin;
   font-weight: normal;
@@ -24,11 +24,12 @@ const Title = styled.h1`
 const TitleLink = styled.a`
   text-decoration: none;
   &:hover: {
-    color: rgba(255, 255, 255, 0.87);
+    color: rgba(255, 255, 255, 0.66);
   }
   &:visited: {
-    color: rgba(255, 255, 255, 0.87);
+    color: rgba(255, 255, 255, 0.66);
   }
+
   &:visited:hover {
     color: rgba(255, 255, 255, 0.87);
   }

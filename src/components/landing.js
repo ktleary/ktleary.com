@@ -6,7 +6,7 @@ const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
 `;
 
-const AboutText = styled.div`
+const LandingText = styled.div`
   color: ${({ textColor }) => textColor || "rgba(255, 255, 255, 0.87)"};
   font-family: sans-serif;
   text-align: center;
@@ -23,12 +23,12 @@ const Underline = styled.div`
   width: 40vmin;
 `;
 
-export default function About() {
+export default function Landing() {
   return (
     <AboutContainer>
-      <AboutText>I build innovative software</AboutText>
-      <AboutText>for companies and organizations</AboutText>
-      <AboutText>changing the world</AboutText>
+      <LandingText>I build innovative software</LandingText>
+      <LandingText>for companies and organizations</LandingText>
+      <LandingText>changing the world</LandingText>
       <Underline data-testid="underline" />
     </AboutContainer>
   );

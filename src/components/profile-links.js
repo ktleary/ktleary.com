@@ -10,7 +10,7 @@ const ProfileLinksContainer = styled.div`
 
 const ProfileLink = styled.a`
   color: ${({ linkColor }) =>
-    linkColor ? "rgba(100, 181, 246, 0.87)" : "rgba(255, 255, 255, 0.666)"};
+    linkColor ? "rgba(255, 138, 101, 0.87)" : "rgba(255, 255, 255, 0.5)"};
   cursor: pointer;
   font-family: sans-serif;
   text-decoration: none;
@@ -18,7 +18,7 @@ const ProfileLink = styled.a`
   transition: color 0.1s;
   &:hover {
     color: ${({ linkColor }) =>
-      linkColor ? "rgba(100, 181, 246, 0.87)" : "rgba(129, 199, 132, 1.0)"};
+      linkColor ? "rgba(255, 138, 101, 0.87)" : "rgba(255, 255, 255, 1.0)"};
     text-decoration: none;
   }
 `;
