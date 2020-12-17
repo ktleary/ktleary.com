@@ -3,7 +3,7 @@ import App from "../App";
 
 test("it renders Kevin T Leary", () => {
   render(<App />);
-  const headerText = "ktleary";
+  const headerText = "Kevin T Leary";
   const headerTextElement = screen.getByTestId("header-title");
   expect(headerTextElement).toHaveTextContent(headerText);
 });

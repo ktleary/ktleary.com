@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const AboutContainer = styled.div`
-  margin: 10vh 8px 0 8px;
+  margin: 72px 0 0 0;
   color: rgba(255, 255, 255, 0.78);
 `;
 
@@ -19,7 +19,7 @@ const LandingText = styled.div`
 const Underline = styled.div`
   background: rgba(255, 138, 101, 0.666);
   height: 2px;
-  margin: 14px auto;
+  margin: 16px auto;
   width: 40vmin;
 `;
 
