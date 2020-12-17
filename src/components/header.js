@@ -16,10 +16,10 @@ const Title = styled.h1`
 
   color: rgba(255, 255, 255, 0.76);
   font-family: sans-serif;
-  font-size: 7vmin;
+  font-size: 5vmin;
   font-weight: normal;
-  letter-spacing: 1px;
   margin: 0;
+  padding: 0;
   padding-top: 16px;
 `;
 

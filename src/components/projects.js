@@ -18,17 +18,23 @@ const projectData = [
 ];
 
 const GenericLinkIcon = styled(GenericLinkButton)`
-  background: transparent;
+
   color: transparent;
   fill: rgba(255, 255, 255, 0.78);
   height: 20px;
   width: 20px;
+  &:hover{
+    fill: rgba(255, 255, 255, 1.0);
+  };
 `;
 
 const SourceHutIcon = styled(SourceHutButton)`
   color: rgba(255, 255, 255, 0.78);
   height: 18px;
   width: 18px;
+  &:hover{
+    color: rgba(255, 255, 255, 1.0);
+  }
 `;
 
 const GitHubIcon = styled(GitHubButton)`
@@ -91,15 +97,15 @@ const ProjectLinks = styled.div`
   display: flex;
   margin: 0;
   padding: 4px 16px;
+  &:hover{
+    fill: pink};
 `;
 
 const LinkContainer = styled.div`
   cursor: pointer;
   margin-right: 8px;
   text-decoration: none;
-  &:hover {
-    background: rgba(255, 138, 101, 0.87);
-  }
+
 `;
 
 
@@ -110,9 +116,9 @@ function ProjectLinkButton(props) {
     window.open(url);
   };
   switch (linkType) {
-    case "repourl":
+    case "repoUrl":
       return url.indexOf("sr.ht") > -1 ? (
-        <LinkContainer onClick={handleClick}>
+        <LinkContainer title="SourceHut" onClick={handleClick}>
           <SourceHutIcon />
         </LinkContainer>
       ) : (
@@ -120,9 +126,9 @@ function ProjectLinkButton(props) {
           <GitHubIcon onClick={handleClick} />
         </LinkContainer>
       );
-    case "siteurl":
+    case "siteUrl":
       return (
-        <LinkContainer onClick={handleClick}>
+        <LinkContainer title="Demo" onClick={handleClick}>
           <GenericLinkIcon />
         </LinkContainer>
       );
@@ -144,10 +150,10 @@ function Project(props) {
       <ProjectDescription>{description}</ProjectDescription>
       <ProjectLinks>
         {repoUrl && (
-          <ProjectLinkButton name={name} linkType="repourl" url={repoUrl} />
+          <ProjectLinkButton name={name} linkType="repoUrl" url={repoUrl} />
         )}
         {siteUrl && (
-          <ProjectLinkButton name={name} linkType="demourl" url={siteUrl} />
+          <ProjectLinkButton name={name} linkType="siteUrl" url={siteUrl} />
         )}
       </ProjectLinks>
     </ProjectContainer>

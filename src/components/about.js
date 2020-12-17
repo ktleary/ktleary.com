@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.87);
-  margin: auto;
+  margin: 32px auto;
   max-width: 600px;
-  padding: 8px 16px;
+  padding: 0 16px;
 `;
 
 const AboutLink = styled.a`

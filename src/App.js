@@ -4,6 +4,7 @@ import Header from "./components/header";
 import ProfileLinks from "./components/profile-links";
 import About from "./components/about";
 import Code from "./components/code";
+import Contact from './components/contact';
 import Landing from "./components/landing";
 const views = Object.freeze({
   about: "about",
@@ -33,6 +34,7 @@ function App() {
         {
           about: <About />,
           code: <Code />,
+          contact: <Contact />,
           landing: <Landing />
         }[view]
       }

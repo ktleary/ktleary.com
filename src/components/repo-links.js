@@ -34,7 +34,7 @@ const Links = styled.div`
 `;
 
 const LinkRow = styled.div`
-  color: rgba(255, 255, 255, 0.66);
+  color: rgba(255, 255, 255, 0.76);
   display: flex;
   font-size: 18px;
   height: 24px;
@@ -43,8 +43,7 @@ const LinkRow = styled.div`
   cursor: pointer;
   vertical-align: middle;
   &:hover {
-    color: rgba(255, 255, 255, 0.87);
-    padding-left: 2px;
+    color: rgba(255, 255, 255, 1.0);
   }
 `;
 const Cell = styled.div`
