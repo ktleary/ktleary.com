@@ -16,7 +16,7 @@ const Title = styled.h1`
 
   color: rgba(255, 255, 255, 0.76);
   font-family: sans-serif;
-  font-size: 5vmin;
+  font-size: 7vmin;
   font-weight: normal;
   margin: 0;
   padding: 0;

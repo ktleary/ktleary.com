@@ -1,4 +1,4 @@
-export default async function copyToClipboard(text) {
+async function copyToClipboard(text) {
   return navigator.clipboard
     ? await navigator.clipboard
         .writeText(text)
@@ -8,3 +8,12 @@ export default async function copyToClipboard(text) {
         })
     : false;
 }
+
+function splitMailto(mailto) {
+  if (!mailto || !mailto.split(":").length > 1) return;
+  const parts = mailto.split(":");
+  const email = parts[1];
+  return email;
+}
+
+export { copyToClipboard, splitMailto };

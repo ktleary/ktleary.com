@@ -1,4 +1,4 @@
-import copyToClipboard from "../util.js";
+import { copyToClipboard, splitMailto } from "../util.js";
 
 test("it should return true for copying text to clipboard", async () => {
   Object.assign(navigator, {
@@ -34,4 +34,10 @@ test("it should return false when promise is rejected", async () => {
   const text = "copy text";
   const result = await copyToClipboard(text);
   expect(result).toBe(false);
+});
+
+it("should return the email address from a mailto", () => {
+  const mailto = "mailto:kevin@ktleary.com";
+  const email = splitMailto(mailto);
+  expect(email).toEqual("kevin@ktleary.com");
 });

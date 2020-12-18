@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 import { AngelListButton, CopyButton, EmailButton } from "./buttons";
-import copyToClipboard from "../util";
+import { copyToClipboard, splitMailto } from "../util";
 
 const AngelListIcon = styled(AngelListButton)`
   color: rgba(255, 255, 255, 0.66);
@@ -22,11 +22,6 @@ const CopyIcon = styled(CopyButton)`
   width: 12px;
 `;
 
-const ContactContainer = styled.div`
-  margin-top: 32px;
-  max-width: 600;
-`;
-
 const contactData = [
   {
     name: "AngelList",
@@ -35,6 +30,22 @@ const contactData = [
   },
   { name: "Email", url: "mailto:kevin@ktleary.com", icon: <EmailIcon /> },
 ];
+
+const COPYSTATES = Object.freeze({
+  NORMAL: "transparent",
+  SUCCESS: "rgba(3, 218, 198, 0.66)",
+});
+
+const ContactContainer = styled.div`
+  margin-top: 32px;
+  max-width: 600;
+`;
+
+const Links = styled.div`
+  margin: auto;
+  text-align: left;
+  width: 128px;
+`;
 
 const LinkRow = styled.div`
   color: rgba(255, 255, 255, 0.76);
@@ -50,11 +61,6 @@ const LinkRow = styled.div`
   }
 `;
 
-const Links = styled.div`
-  margin: auto;
-  text-align: left;
-  width: 128px;
-`;
 const Cell = styled.div`
   align-items: center;
   display: flex;
@@ -69,30 +75,34 @@ const EmailContainer = styled.div`
   display: flex;
 `;
 
+const copyEmail = (contactData) => {
+  const address = contactData.find((contact) => contact.name === "Email")[
+    "url"
+  ];
+  const email = splitMailto(address);
+  return copyToClipboard(email);
+};
+
 function ContactLink(props) {
   const { name } = props;
+
   const [showCopy, setShowCopy] = useState(false);
-  const [copyBackground, setCopyBackground] = useState("transparent");
+  const [copyBackground, setCopyBackground] = useState(COPYSTATES.NORMAL);
+
   const handleShowCopy = () => {
     setShowCopy(true);
   };
-  const handleHideCopy = (e) => {
+
+  const handleHideCopy = () => {
     setCopyBackground("transparent");
     setShowCopy(false);
   };
+
   const handleCopyEmail = async (e) => {
     e.stopPropagation();
-    try {
-      const address = contactData
-        .find((contact) => contact.name === "Email")
-        ["url"].split(":")[1];
-      copyToClipboard(address);
-      setCopyBackground("rgba(3, 218, 198, 0.66)");
-      setShowCopy(false);
-      setTimeout(() => setCopyBackground("transparent"), 333);
-    } catch (err) {
-      const { name, message } = err;
-      console.log(name, message);
+    if (copyEmail(contactData)) {
+      setCopyBackground(COPYSTATES.SUCCESS);
+      setTimeout(() => setCopyBackground(COPYSTATES.NORMAL), 333);
     }
   };
 
