@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-import { AngelListButton, EmailButton } from "./buttons";
+import { AngelListButton, CopyButton, EmailButton } from "./buttons";
+import copyToClipboard from "../util";
 
 const AngelListIcon = styled(AngelListButton)`
   color: rgba(255, 255, 255, 0.66);
@@ -13,6 +14,12 @@ const EmailIcon = styled(EmailButton)`
   color: rgba(255, 255, 255, 0.66);
   height: 24px;
   width: 24px;
+`;
+
+const CopyIcon = styled(CopyButton)`
+  color: rgba(255, 255, 255, 0.66);
+  height: 12px;
+  width: 12px;
 `;
 
 const ContactContainer = styled.div`
@@ -57,39 +64,84 @@ const Cell = styled.div`
   vertical-align: middle;
 `;
 
-function ContactLink(props) {
-  const { name, handleClick } = props;
-  return (
-    <LinkRow name={name} onClick={handleClick}>
-      <Cell>
-        {name === "AngelList" ? <AngelListButton /> : <EmailButton />}
-      </Cell>
-      <Cell>{name}</Cell>
-    </LinkRow>
-  );
-}
+const EmailContainer = styled.div`
+  align-items: center;
+  display: flex;
+`;
 
-export default function Contact(props) {
+function ContactLink(props) {
+  const { name } = props;
+  const [showCopy, setShowCopy] = useState(true);
+  const [copyBackground, setCopyBackground] = useState("transparent");
+  const handleShowCopy = (e) => {
+    setShowCopy(true);
+  };
+  const handleHideCopy = (e) => {
+    setCopyBackground("transparent");
+    setShowCopy(false);
+  };
+  const handleCopyEmail = async (e) => {
+    e.stopPropagation();
+    try {
+      const address = contactData
+        .find((contact) => contact.name === "Email")
+        ["url"].split(":")[1];
+      copyToClipboard(address);
+      setCopyBackground("rgba(3, 218, 198, 0.66)");
+      setShowCopy(false);
+      setTimeout(() => setCopyBackground("transparent"), 333);
+    } catch (err) {
+      const { name, message } = err;
+      console.log(name, message);
+    }
+  };
+
   const handleClick = (e) => {
     try {
       const name = e.currentTarget.getAttribute("name");
       const url = contactData.find((contact) => contact.name === name)["url"];
       window.open(url);
     } catch (e) {
-      const { name, message} = e;
+      const { name, message } = e;
       console.log(`${name}: ${message}`);
     }
   };
+
+  return (
+    <LinkRow
+      name={name}
+      onMouseOver={name === "Email" ? handleShowCopy : null}
+      onMouseLeave={name === "Email" ? handleHideCopy : null}
+      onClick={handleClick}
+    >
+      <Cell>
+        {name === "AngelList" ? (
+          <AngelListButton />
+        ) : (
+          <EmailContainer>
+            <EmailButton />
+          </EmailContainer>
+        )}
+      </Cell>
+      <Cell>{name}</Cell>
+      {name === "Email" && showCopy && (
+        <Cell
+          onClick={handleCopyEmail}
+          style={{ background: copyBackground, borderRadius: 16 }}
+        >
+          <CopyIcon />
+        </Cell>
+      )}
+    </LinkRow>
+  );
+}
+
+export default function Contact(props) {
   return (
     <ContactContainer>
       <Links>
         {contactData.map((contact) => (
-          <ContactLink
-            name={contact.name}
-            url={contact.url}
-            handleClick={handleClick}
-            key={nanoid()}
-          />
+          <ContactLink name={contact.name} url={contact.url} key={nanoid()} />
         ))}
       </Links>
     </ContactContainer>

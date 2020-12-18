@@ -34,7 +34,7 @@ export default function About() {
         spaces.
       </p>
       <p>Thanks for stopping by.</p>
-      <p>Kevin Leary</p>
+      <p>Kevin</p>
     </AboutContainer>
   );
 }
