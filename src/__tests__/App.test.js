@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
 
 test("it renders Kevin T Leary", () => {
@@ -15,3 +15,14 @@ test("it renders an underline with color #ff8a65", () => {
     background: "rgba(255, 138, 101, 0.666)",
   });
 });
+
+test("it renders the code view when view is set to code", () => {
+  const view = "code";
+  const { getByTestId } = render(<App />);
+  const node = getByTestId(`profile-link-${view}`);
+  fireEvent.click(node, { target: { name: view } });
+  const codeContainer = getByTestId("code-container");
+  expect(codeContainer).toBeInTheDocument();
+});
+
+ afterEach(cleanup)

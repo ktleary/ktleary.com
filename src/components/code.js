@@ -7,22 +7,23 @@ const CodeContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
   margin: 32px auto;
   max-width: 600px;
-
 `;
 
 export default function Code() {
   const handleClick = (e) => {
     try {
-      const name = e.target.getAttribute("name").toLowerCase();
+      const name = e.currentTarget.getAttribute("name").toLowerCase();
       const url = repos[name.toLowerCase()].url;
       window.open(url);
-    } catch {
-      return;
+    } catch (e) {
+      const { name, message } = e;
+      console.log(name, message);
+      return { name, message };
     }
   };
 
   return (
-    <CodeContainer>
+    <CodeContainer data-testid="code-container">
       <RepoLinks handleClick={handleClick} />
       <Projects />
     </CodeContainer>

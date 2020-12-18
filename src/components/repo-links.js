@@ -43,7 +43,7 @@ const LinkRow = styled.div`
   cursor: pointer;
   vertical-align: middle;
   &:hover {
-    color: rgba(255, 255, 255, 1.0);
+    color: rgba(255, 255, 255, 1);
   }
 `;
 const Cell = styled.div`
@@ -58,7 +58,7 @@ const Cell = styled.div`
 function RepoLink(props) {
   const { name, handleClick } = props;
   return (
-    <LinkRow name={name} onClick={handleClick}>
+    <LinkRow data-testid={`repo-link-${name}`} name={name} onClick={handleClick}>
       <Cell>{name === "GitHub" ? <GitHubButton /> : <SourceHutButton />}</Cell>
       <Cell>{name}</Cell>
     </LinkRow>
@@ -69,7 +69,7 @@ export default function RepoLinks(props) {
   const { handleClick } = props;
   return (
     <Links>
-      {Object.keys(repos).map((repo) => (
+      {Object.keys(repos).map((repo, i) => (
         <RepoLink
           name={repos[repo].name}
           url={repos[repo].url}

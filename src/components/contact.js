@@ -71,9 +71,9 @@ const EmailContainer = styled.div`
 
 function ContactLink(props) {
   const { name } = props;
-  const [showCopy, setShowCopy] = useState(true);
+  const [showCopy, setShowCopy] = useState(false);
   const [copyBackground, setCopyBackground] = useState("transparent");
-  const handleShowCopy = (e) => {
+  const handleShowCopy = () => {
     setShowCopy(true);
   };
   const handleHideCopy = (e) => {
@@ -113,8 +113,9 @@ function ContactLink(props) {
       onMouseOver={name === "Email" ? handleShowCopy : null}
       onMouseLeave={name === "Email" ? handleHideCopy : null}
       onClick={handleClick}
+      data-testid={`link-row-${name}`}
     >
-      <Cell>
+      <Cell data-testid={`link-cell-${name}`}>
         {name === "AngelList" ? (
           <AngelListButton />
         ) : (
@@ -129,7 +130,7 @@ function ContactLink(props) {
           onClick={handleCopyEmail}
           style={{ background: copyBackground, borderRadius: 16 }}
         >
-          <CopyIcon />
+          <CopyIcon title="Copy" data-testid="copy-icon" />
         </Cell>
       )}
     </LinkRow>

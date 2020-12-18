@@ -48,6 +48,7 @@ export default function ProfileLinks(props) {
             name={link.name.toLowerCase()}
             onClick={handleViews}
             linkColor={link.name.toLowerCase() === view}
+            data-testid={`profile-link-${link.name.toLowerCase()}`}
           >
             {link.name}
           </ProfileLink>
