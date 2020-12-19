@@ -11,7 +11,7 @@ const projectData = [
     siteUrl: "https://invidi.link",
   },
   {
-    name: "Sentiment Text Area",
+    name: "SentiText",
     description:
       "Sentiment Text Area is a React component which shows a sentiment score as you type. The NLP uses the AFINN word list approach to analysis.",
     repoUrl: "https://git.sr.ht/~djlooop/senti-textarea",
@@ -75,7 +75,7 @@ const ProjectDetails = styled.div`
 const ProjectTitle = styled.h3`
   align-items: center;
   color: rgba(255, 255, 255, 0.87);
-  font-size: 3.5vmin;
+  font-size: 16px;
   font-weight: normal;
   display: flex;
   margin: 0;
