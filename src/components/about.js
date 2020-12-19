@@ -24,8 +24,7 @@ const AboutLink = (props) => {
   const { link, linkText } = props;
   return (
     <span>
-      {" "}
-      <Link href={link}>{linkText}</Link>{" "}
+      <Link href={link}>{linkText}</Link>
     </span>
   );
 };
@@ -34,16 +33,17 @@ export default function About() {
   return (
     <AboutContainer>
       <p>
-        I'm a web developer and founder of
+        I'm a web developer and founder of{" "}
         <AboutLink link="https://broadcove.io" linkText="Broadcove" />
         with over 15 years of experience working on the net. Much of this time
         has been spent working with startups as an independent contractor
         serving clients in the financial, healthcare and e-commerce spaces. I am
-        a web-standards and open-source enthusiast and am a member of the
+        a web-standards and open-source enthusiast and am a member of the{" "}
         <AboutLink
           link="https://www.w3.org/community/schemaorg/"
           linkText="W3C schema.org Working Group"
         />
+        .
       </p>
       <p>
         On the front-end, I am currently writing in React and have lead projects
@@ -61,7 +61,7 @@ export default function About() {
         dot-com days when I helped build a successful e-learning company,
         DigitalMed. I am a graduate of Skidmore College and a native of Greater
         Boston, though I am now based out of New York City and my work has
-        brought me
+        brought me{" "}
         <AboutLink
           link="https://nomadlist.com/@kethle"
           linkText="far and wide"
@@ -74,7 +74,8 @@ export default function About() {
           link="https://www.allrecipes.com/recipe/142488/amazing-spicy-grilled-shrimp/"
           linkText="cooking"
         />
-        , playing acoustic guitar, showing my Scrabble foo, and adding to a burgeoning{" "}
+        , playing acoustic guitar, showing my Scrabble foo, and adding to a
+        burgeoning{" "}
         <AboutLink link="https://zettelkasten.de/" linkText="zettelkasten" />.
       </p>
       <p>Thanks for visiting.</p>
