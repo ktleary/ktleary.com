@@ -6,10 +6,10 @@ sources:
   - https://git.sr.ht/~djlooop/ktleary.com
 tasks:
   - setup: |
-      cd invidi.link
+      cd ktleary.com
       npm install
   - test: |
-      cd invidi.link
+      cd ktleary.com
       npm test
 
 
