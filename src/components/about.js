@@ -34,7 +34,7 @@ export default function About() {
     <AboutContainer>
       <p>
         I'm a web developer and founder of{" "}
-        <AboutLink link="https://broadcove.io" linkText="Broadcove" />
+        <AboutLink link="https://broadcove.io" linkText="Broadcove" />{" "}
         with over 15 years of experience working on the net. Much of this time
         has been spent working with startups as an independent contractor
         serving clients in the financial, healthcare and e-commerce spaces. I am

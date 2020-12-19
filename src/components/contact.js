@@ -34,6 +34,7 @@ const contactData = [
 const COPYSTATES = Object.freeze({
   NORMAL: "transparent",
   SUCCESS: "rgba(3, 218, 198, 0.66)",
+  FAIL: "rgba(176, 0, 32, 1)",
 });
 
 const ContactContainer = styled.div`
@@ -100,8 +101,11 @@ function ContactLink(props) {
 
   const handleCopyEmail = async (e) => {
     e.stopPropagation();
-    if (copyEmail(contactData)) {
+    if (await copyEmail(contactData)) {
       setCopyBackground(COPYSTATES.SUCCESS);
+      setTimeout(() => setCopyBackground(COPYSTATES.NORMAL), 333);
+    } else {
+      setCopyBackground(COPYSTATES.FAIL);
       setTimeout(() => setCopyBackground(COPYSTATES.NORMAL), 333);
     }
   };
