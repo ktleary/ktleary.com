@@ -41,7 +41,7 @@ export default function About() {
         a web-standards and open-source enthusiast and am a member of the{" "}
         <AboutLink
           link="https://www.w3.org/community/schemaorg/"
-          linkText="W3C schema.org Working Group"
+          linkText="W3C schema.org Community Group"
         />
         .
       </p>
