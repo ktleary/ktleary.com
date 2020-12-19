@@ -1,70 +1,13 @@
-html, body,
-div {
+html,
+body {
+	-webkit-font-smoothing: antialiased;
+	background: #1b1b1b;
 	border: 0;
+	color: rgba(255, 255, 255, 1);
+	font-family: sans-serif;
+	font-size: 100%;
+	height: 100vh;
 	margin: 0;
 	padding: 0;
-	font-family: monospace;
-}
-
-body {
-	font-family: monospace;
-	font-size: 100%;
-	-webkit-font-smoothing: antialiased;
-	background: transparent;
 	width: 100%;
-	height: 100%;
-	min-height: 100vh;
-}
-
-body {
-	background-color: #111111;
-	color: #fff;
-	width: 100%;
-}
-
-body.animated {
-	transition: color 1s, background 1s, transform 1s;
-	animation: colorchange 50s;
-	-webkit-animation: colorchange 50s;
-}
-
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
-}
-
-@keyframes colorchange {
-	10% {
-		background: #2f2f2f;
-	}
-	25% {
-		background: #575757;
-	}
-	50% {
-		background: #ff8a65;
-	}
-	75% {
-		background: #ffffff;
-	}
-	100% {
-		background: #039be5;
-	}
-}
-
-@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */ {
-		10% {
-		background: #2f2f2f;
-	}
-	25% {
-		background: #575757;
-	}
-	50% {
-		background: #ff8a65;
-	}
-	75% {
-		background: #ffffff;
-	}
-	100% {
-		background: #039be5;
-	}
 }
