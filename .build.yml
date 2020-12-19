@@ -3,7 +3,7 @@ packages:
   - nodejs
   - npm
 sources:
-  - https://git.sr.ht/~djlooop/invidi.link
+  - https://git.sr.ht/~djlooop/ktleary.com
 tasks:
   - setup: |
       cd invidi.link
