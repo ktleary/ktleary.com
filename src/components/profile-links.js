@@ -15,48 +15,44 @@ const ProfileLinksContainer = styled.div`
 `;
 
 const ProfileLink = styled.a`
-  color: ${({ linkColor }) =>
-    linkColor ? "rgba(255, 138, 101, 0.87)" : "rgba(255, 255, 255, 0.76)"};
+  color: ${({ active }) =>
+    active ? "rgba(255.0, 149.0, 0.0, 1.0)" : "rgba(235.0, 235.0, 245.0, 0.6)"};
   cursor: pointer;
-  font-family: sans-serif;
   text-decoration: none;
   font-size: 4vmin;
-  transition: color 0.33s;
   &:hover {
-    color: ${({ linkColor }) =>
-      linkColor ? "rgba(255, 138, 101, 0.87)" : "rgba(3, 218, 198, 1.0)"};
+    color: ${({ active }) =>
+      active ? "rgba(255.0, 149.0, 0.0, 1.0)" : "rgba(255, 255, 255, 1.0)"};
     text-decoration: none;
   }
 `;
 
 const SlashStyle = styled.span`
   font-size: 4vmin;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(235.0, 235.0, 245.0, 0.6);
 `;
 
 const slash = () => <SlashStyle>&nbsp;/&nbsp;</SlashStyle>;
 
 const LinkContainer = styled.span``;
 
+const id = nanoid();
 
-
-export default function ProfileLinks(props) {
-  const { handleViews, view } = props;
-  return (
-    <ProfileLinksContainer>
-      {linkData.map((link, i) => (
-        <LinkContainer key={nanoid()}>
-          <ProfileLink
-            name={link.name.toLowerCase()}
-            onClick={handleViews}
-            linkColor={link.name.toLowerCase() === view}
-            data-testid={`profile-link-${link.name.toLowerCase()}`}
-          >
-            {link.name}
-          </ProfileLink>
-          {i < linkData.length - 1 ? slash() : null}
-        </LinkContainer>
-      ))}
-    </ProfileLinksContainer>
-  );
-}
+const ProfileLinks = ({ handleViews, view }) => (
+  <ProfileLinksContainer>
+    {linkData.map((link, i) => (
+      <LinkContainer key={`link-${id}-${i}`}>
+        <ProfileLink
+          name={link.name.toLowerCase()}
+          onClick={handleViews}
+          active={link.name.toLowerCase() === view}
+          data-testid={`profile-link-${link.name.toLowerCase()}`}
+        >
+          {link.name}
+        </ProfileLink>
+        {i < linkData.length - 1 ? slash() : null}
+      </LinkContainer>
+    ))}
+  </ProfileLinksContainer>
+);
+export default ProfileLinks;

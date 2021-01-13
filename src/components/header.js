@@ -14,8 +14,7 @@ const TitleContainer = styled.div`
 
 const Title = styled.h1`
 
-  color: rgba(255, 255, 255, 0.76);
-  font-family: sans-serif;
+  color: rgba(255, 255, 255, 0.89);
   font-size: 7vmin;
   font-weight: normal;
   margin: 0;

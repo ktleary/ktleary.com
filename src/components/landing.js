@@ -8,7 +8,6 @@ const AboutContainer = styled.div`
 
 const LandingText = styled.div`
   color: ${({ textColor }) => textColor || "rgba(255, 255, 255, 0.87)"};
-  font-family: sans-serif;
   text-align: center;
   font-size: 5vmin;
   margin: 4px 0;
@@ -17,19 +16,19 @@ const LandingText = styled.div`
 `;
 
 const Underline = styled.div`
-  background: rgba(255, 138, 101, 0.666);
+  background: rgba(255, 159, 10, 1);
   height: 2px;
   margin: 16px auto;
   width: 40vmin;
 `;
 
-export default function Landing() {
-  return (
-    <AboutContainer>
-      <LandingText>I build innovative software</LandingText>
-      <LandingText>for companies and organizations</LandingText>
-      <LandingText>changing the world</LandingText>
-      <Underline data-testid="underline" />
-    </AboutContainer>
-  );
-}
+const Landing = () => (
+  <AboutContainer>
+    <LandingText>I build innovative software</LandingText>
+    <LandingText>for companies and organizations</LandingText>
+    <LandingText>changing the world</LandingText>
+    <Underline data-testid="underline" />
+  </AboutContainer>
+);
+
+export default Landing;

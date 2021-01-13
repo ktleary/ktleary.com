@@ -6,16 +6,37 @@ const projectData = [
   {
     name: "invidi.link",
     description:
-      "Invidilinks is a mobile-first tool used to convert urls into invidio.us links. It works by fetching real-time instances data and rewriting the supplied url in the browser. It also provides an option to supply the url as a paramenter.",
+      "Invidilinks is a mobile-first tool used to convert URLs into invidio.us links. It works by fetching real-time instances data and rewriting the supplied url in the browser. It also provides an option to supply the url as a parameter.",
     repoUrl: "https://sr.ht/~djlooop/invidi.link/",
     siteUrl: "https://invidi.link",
   },
   {
-    name: "SentiText",
+    name: "Genstar",
+    description:
+      "Genstar is a web-based tool for interactively creating story lines including plot, conflict type, characters, character attributes and story setting. Click on any of part of the story line to replace it with a randomly generated replacement.",
+    repoUrl: "https://git.sr.ht/~djlooop/genstr",
+    siteUrl: "https://stringtalk.org/genstar/",
+  },
+  {
+    name: "Days",
+    description:
+      "Information about current, past and present days including day of the week, year, as well as moon phase and sun sign.",
+    repoUrl: "https://git.sr.ht/~djlooop/days",
+    siteUrl: "https://stringtalk.org/days",
+  },
+  {
+    name: "Summer of Letters",
+    description:
+      "Summer of Letters is a tool for converting letters and words to numbers and sums.",
+    repoUrl: "https://git.sr.ht/~djlooop/summer-of-letters",
+    siteUrl: "https://stringtalk.org/summer-of-letters",
+  },
+  {
+    name: "Sentitext",
     description:
       "Sentiment Text Area is a React component which shows a sentiment score as you type. The NLP uses the AFINN word list approach to analysis.",
     repoUrl: "https://git.sr.ht/~djlooop/senti-textarea",
-    siteUrl: null,
+    siteUrl: "https://stringtalk.org/sentitext/",
   },
 ];
 
@@ -57,12 +78,14 @@ const ProjectsSection = styled.h2`
   text-align: center;
 `;
 const ProjectContainer = styled.div`
-  background: rgba(39, 39, 39, 1);
+  background: rgba(44, 44, 46, 1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin: 4px;
+  min-width: 284px;
+  max-width: 284px;
+  width: 100%;
   flex: 1;
   padding: 0;
 `;
@@ -70,6 +93,12 @@ const ProjectContainer = styled.div`
 const ProjectDetails = styled.div`
   display: flex;
   margin: 8px;
+  flex-wrap: wrap;
+  justify-content: left;
+  @media (max-width: 444px) {
+    justify-content: center;
+  }
+  padding-bottom: 24px;
 `;
 
 const ProjectTitle = styled.h3`
@@ -85,7 +114,7 @@ const ProjectTitle = styled.h3`
 `;
 
 const ProjectDescription = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   height: 100%;
   margin: 0 0;
   padding: 8px 16px;
@@ -96,9 +125,6 @@ const ProjectLinks = styled.div`
   display: flex;
   margin: 0;
   padding: 4px 16px;
-  &:hover {
-    fill: pink;
-  }
 `;
 
 const LinkContainer = styled.div`
