@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.89);
+  font-size: calc(8px + 2vmin);
   margin: 32px auto;
-  max-width: 500px;
+  max-width: 600px;
   padding: 0 32px;
 `;
 
