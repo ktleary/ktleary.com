@@ -1,7 +1,9 @@
 import React from "react";
+import { CodeHelmet } from "./helmet";
 import styled from "styled-components";
 import RepoLinks, { repos } from "./repo-links";
 import Projects from "./projects";
+const logger = (x) => console.log(x);
 
 const CodeContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
@@ -17,13 +19,14 @@ export default function Code() {
       window.open(url);
     } catch (e) {
       const { name, message } = e;
-      console.log(name, message);
+      logger({ name, message });
       return { name, message };
     }
   };
 
   return (
     <CodeContainer data-testid="code-container">
+      <CodeHelmet />
       <RepoLinks handleClick={handleClick} />
       <Projects />
     </CodeContainer>

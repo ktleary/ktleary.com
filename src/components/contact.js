@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ContactHelmet } from "./helmet";
 import { nanoid } from "nanoid";
 import { AngelListButton, CopyButton, EmailButton } from "./buttons";
 import { copyToClipboard, splitMailto } from "../util";
@@ -129,6 +130,7 @@ function ContactLink(props) {
       onClick={handleClick}
       data-testid={`link-row-${name}`}
     >
+
       <Cell data-testid={`link-cell-${name}`}>
         {name === "AngelList" ? (
           <AngelListButton />
@@ -154,6 +156,7 @@ function ContactLink(props) {
 export default function Contact(props) {
   return (
     <ContactContainer>
+      <ContactHelmet />
       <Links>
         {contactData.map((contact) => (
           <ContactLink name={contact.name} url={contact.url} key={nanoid()} />

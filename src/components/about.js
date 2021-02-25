@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { AboutHelmet } from "./helmet";
 const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.89);
   font-size: calc(8px + 2vmin);
@@ -32,6 +32,7 @@ const AboutLink = (props) => {
 
 const About = () => (
   <AboutContainer>
+    <AboutHelmet />
     <p>
       I'm a web developer and founder of{" "}
       <AboutLink link="https://broadcove.io" linkText="Broadcove" /> with over

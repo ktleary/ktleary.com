@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const TitleContainer = styled.div`
@@ -13,7 +14,6 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-
   color: rgba(255, 255, 255, 0.89);
   font-size: 7vmin;
   font-weight: normal;
@@ -22,7 +22,7 @@ const Title = styled.h1`
   padding-top: 16px;
 `;
 
-const TitleLink = styled.a`
+const TitleLink = styled(Link)`
   text-decoration: none;
   &:hover: {
     color: rgba(255, 255, 255, 0.87);
@@ -39,12 +39,12 @@ const TitleLink = styled.a`
   }
 `;
 
-export default function Header() {
-  return (
-    <TitleContainer>
-      <TitleLink href="/" alt="ktleary.com">
-        <Title data-testid="header-title">Kevin T Leary</Title>
-      </TitleLink>
-    </TitleContainer>
-  );
-}
+const Header = ({ handleViews }) => (
+  <TitleContainer>
+    <TitleLink onClick={handleViews} name={'landing'} to="/" alt="ktleary.com">
+      <Title data-testid="header-title">Kevin T Leary</Title>
+    </TitleLink>
+  </TitleContainer>
+);
+
+export default Header;
