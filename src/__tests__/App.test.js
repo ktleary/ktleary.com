@@ -12,7 +12,7 @@ test("it renders an underline with color #ff8a65", () => {
   render(<App />);
   const headerTextElement = screen.getByTestId("underline");
   expect(headerTextElement).toHaveStyle({
-    background: "rgba(255, 138, 101, 0.666)",
+    background: "rgb(255, 159, 10)",
   });
 });
 
