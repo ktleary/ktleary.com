@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { views } from "../constants";
 
 const TitleContainer = styled.div`
   align-items: center;
@@ -41,7 +42,12 @@ const TitleLink = styled(Link)`
 
 const Header = ({ handleViews }) => (
   <TitleContainer>
-    <TitleLink onClick={handleViews} name={'landing'} to="/" alt="ktleary.com">
+    <TitleLink
+      onClick={handleViews}
+      name={views.landing}
+      to="/"
+      alt="ktleary.com"
+    >
       <Title data-testid="header-title">Kevin T Leary</Title>
     </TitleLink>
   </TitleContainer>

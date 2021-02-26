@@ -1,15 +1,19 @@
 import React from "react";
-import { compose, concat, equals, toLower } from "ramda";
-import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 import { nanoid } from "nanoid";
+import { always, compose, concat, toLower } from "ramda";
+import {
+  isActive,
+  makeKey,
+  idxLessLinkLength,
+  getToLower,
+  getName,
+} from "../fp";
+import { Link } from "react-router-dom";
+import { linkData } from "../constants";
+const id = always(nanoid());
 
-const linkData = [
-  { name: "About", url: "https://angel.co/u/ktleary", color: "#ffeb3b" },
-  { name: "Code", url: "https://github.com/ktleary", color: "#2196f3" },
-  { name: "Contact", url: "mailto:kevin@ktleary.com", color: "#4caf50" },
-];
+// -- Styles -------
 
 const ProfileLinksContainer = styled.div`
   display: flex;
@@ -17,7 +21,7 @@ const ProfileLinksContainer = styled.div`
   margin: 0;
 `;
 
-const ProfileLink = styled(Link)`
+const ProfileRouterLink = styled(Link)`
   color: ${({ active }) =>
     active ? "rgba(255.0, 149.0, 0.0, 1.0)" : "rgba(235.0, 235.0, 245.0, 0.6)"};
   cursor: pointer;
@@ -34,37 +38,45 @@ const SlashStyle = styled.span`
   font-size: 4vmin;
   color: rgba(235, 235, 245, 0.6);
 `;
-
-const id = nanoid();
-
-const slash = () => <SlashStyle>&nbsp;/&nbsp;</SlashStyle>;
-
 const LinkContainer = styled.span``;
 
-const makeLink = (x) => concat("/", x);
 
-const getToLower = compose(makeLink, toLower);
-const isActive = (x, view) => equals(toLower(x), view);
+const Slash = ({ idx }) =>
+  idxLessLinkLength(idx, linkData) ? (
+    <SlashStyle>&nbsp;/&nbsp;</SlashStyle>
+  ) : null;
+const getDataTestId = (name) => concat("profile-link-", name);
+const getDataTestIdLower = compose(getDataTestId, toLower);
+const getLowerLinkName = compose(getToLower, getName);
+const getNameToLower = compose(toLower, getName);
+const getTestId = compose(getDataTestIdLower, getName);
+
+const ProfileLink = ({ view, handleViews, link, idx }) => (
+  <LinkContainer>
+    <ProfileRouterLink
+      to={getLowerLinkName(link)}
+      name={getNameToLower(link)}
+      onClick={handleViews}
+      active={isActive(getName(link), view)}
+      data-testid={getTestId(link)}
+    >
+      {getName(link)}
+    </ProfileRouterLink>
+    <Slash idx={idx} />
+  </LinkContainer>
+);
 
 const ProfileLinks = ({ handleViews, view }) => (
   <ProfileLinksContainer>
-    {linkData.map((link, i) => {
-      const { name } = link;
-      return (
-        <LinkContainer key={`link-${id}-${i}`}>
-          <ProfileLink
-            to={getToLower(name)}
-            name={link.name.toLowerCase()}
-            onClick={handleViews}
-            active={isActive(name, view) ? 1 : 0}
-            data-testid={`profile-link-${link.name.toLowerCase()}`}
-          >
-            {name}
-          </ProfileLink>
-          {i < linkData.length - 1 ? slash() : null}
-        </LinkContainer>
-      );
-    })}
+    {linkData.map((data, idx) => (
+      <ProfileLink
+        idx={idx}
+        view={view}
+        handleViews={handleViews}
+        link={data}
+        key={makeKey(id, idx)}
+      />
+    ))}
   </ProfileLinksContainer>
 );
 export default ProfileLinks;

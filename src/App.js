@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { prop } from "ramda";
 import { HomeHelmet } from "./components/helmet";
 import Header from "./components/header";
 import ProfileLinks from "./components/profile-links";
@@ -36,7 +37,7 @@ const Routes = () => (
 
 function App() {
   const [view, setView] = useState(views.landing);
-  const handleViews = (e) => setView(e.target.name || views.landing);
+  const handleViews = (e) => setView(prop("name", e.target));
 
   return (
     <AppContainer>
