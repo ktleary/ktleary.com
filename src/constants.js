@@ -9,3 +9,9 @@ export const linkData = [
   { name: "Code", url: "https://github.com/ktleary", color: "#2196f3" },
   { name: "Contact", url: "mailto:kevin@ktleary.com", color: "#4caf50" },
 ];
+
+export const COPYSTATES = Object.freeze({
+  NORMAL: "transparent",
+  SUCCESS: "rgba(3, 218, 198, 0.66)",
+  FAIL: "rgba(176, 0, 32, 1)",
+});
