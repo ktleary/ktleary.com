@@ -16,4 +16,6 @@ function splitMailto(mailto) {
   return email;
 }
 
-export { copyToClipboard, splitMailto };
+const logger = (x) => console.log(x);
+
+export { copyToClipboard, logger, splitMailto };
