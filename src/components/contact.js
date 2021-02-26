@@ -4,7 +4,8 @@ import { ContactHelmet } from "./helmet";
 import { compose, curry, equals, find, prop } from "ramda";
 import { copyToClipboard } from "../util";
 import { Cell } from "./cell-row";
-import { AngelListIcon, EmailIcon, CopyIcon } from "./icons";
+import CopyEmail from "./copy-email";
+import { AngelListIcon, EmailIcon } from "./icons";
 import { AngelListButton, EmailButton } from "./buttons";
 import { COPYSTATES } from "../constants";
 import { nameIsEmail, splitMailto, getNameAtt } from "../fp";
@@ -62,25 +63,16 @@ const SelectedButton = ({ name }) => (
   </Cell>
 );
 
-const CopyEmail = ({ handleCopyEmail, copyBackground }) => (
-  <Cell
-    onClick={handleCopyEmail}
-    style={{ background: copyBackground, borderRadius: 16 }}
-  >
-    <CopyIcon title="Copy" data-testid="copy-icon" />
-  </Cell>
-);
-
 // -- Util ------
 
 const getRepoEmail = (contactData) =>
   splitMailto(prop("url", find(nameIsEmail, contactData)));
 const getAndCopyEmail = compose(copyToClipboard, getRepoEmail);
 const contactNameEqUrl = (name, contact) => equals(prop("name", contact), name);
-const dontactNameEqUrlWName = curry(contactNameEqUrl);
-// const contactNameEqUrlWName = (name) => curriedContactNameEqUrl(name);
-const getUrl = (e) =>
-  prop("url", find(dontactNameEqUrlWName(getNameAtt(e)), contactData));
+const contactNameEqUrlWName = curry(contactNameEqUrl);
+
+const getUrl = (name) =>
+  prop("url", find(contactNameEqUrlWName(name), contactData));
 const getOpenUrl = compose(window.open, getUrl);
 
 const Contact = () => {
@@ -105,13 +97,13 @@ const Contact = () => {
       ? setShowCopy(true)
       : setCopyBackground("transparent", setShowCopy(false));
 
-  const handleMouseOver = (e) => {
-    console.log(equals(getNameAtt(e), "Email"));
-    return equals(getNameAtt(e), "Email") ? hideShowCopy(true) : false;
-  };
+  const handleMouseOver = (e) =>
+    equals(getNameAtt(e), "Email") ? hideShowCopy(true) : false;
 
   const handleMouseLeave = (e) =>
     equals(getNameAtt(e), "Email") ? hideShowCopy(false) : false;
+
+  const handleClick = (e) => getOpenUrl(getNameAtt(e));
 
   return (
     <ContactContainer>
@@ -122,17 +114,17 @@ const Contact = () => {
             name={prop("name", contact)}
             onMouseEnter={handleMouseOver}
             onMouseLeave={handleMouseLeave}
-            onClick={getOpenUrl}
+            onClick={handleClick}
             data-testid={`link-row-${prop("name", contact)}`}
           >
             <SelectedButton name={prop("name", contact)} />
             <Cell>{prop("name", contact)}</Cell>
-            {prop("name", contact) === "Email" && showCopy && (
-              <CopyEmail
-                handleCopyEmail={handleCopyEmail}
-                copyBackground={copyBackground}
-              />
-            )}
+            <CopyEmail
+              handleCopyEmail={handleCopyEmail}
+              copyBackground={copyBackground}
+              contact={contact}
+              showCopy={showCopy}
+            />
           </LinkRow>
         ))}
       </Links>
