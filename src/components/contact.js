@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { ContactHelmet } from "./helmet";
-import { compose, curry, equals, find, prop } from "ramda";
+import { always, compose, curry, equals, find, prop } from "ramda";
 import { nanoid } from "nanoid";
 import { copyToClipboard } from "../util";
 import { Cell } from "./cell-row";
@@ -111,15 +111,15 @@ function ContactLink({ name }) {
   );
 }
 
-export default function Contact(props) {
-  return (
-    <ContactContainer>
-      <ContactHelmet />
-      <Links>
-        {contactData.map((contact) => (
-          <ContactLink name={contact.name} url={contact.url} key={nanoid()} />
-        ))}
-      </Links>
-    </ContactContainer>
-  );
-}
+const Contact = always(
+  <ContactContainer>
+    <ContactHelmet />
+    <Links>
+      {contactData.map((contact) => (
+        <ContactLink name={contact.name} url={contact.url} key={nanoid()} />
+      ))}
+    </Links>
+  </ContactContainer>
+);
+
+export default Contact;

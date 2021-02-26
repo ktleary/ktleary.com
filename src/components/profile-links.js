@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-import { always, compose, concat, toLower } from "ramda";
+import { always, compose, concat, curry, toLower } from "ramda";
 import {
   isActive,
   makeKey,
   idxLessLinkLength,
   getToLower,
   getName,
+  mapIndexed,
 } from "../fp";
 import { Link } from "react-router-dom";
 import { linkData } from "../constants";
@@ -40,7 +41,6 @@ const SlashStyle = styled.span`
 `;
 const LinkContainer = styled.span``;
 
-
 const Slash = ({ idx }) =>
   idxLessLinkLength(idx, linkData) ? (
     <SlashStyle>&nbsp;/&nbsp;</SlashStyle>
@@ -66,17 +66,22 @@ const ProfileLink = ({ view, handleViews, link, idx }) => (
   </LinkContainer>
 );
 
+const mapLinkData = (view, handleViews, data, idx) => (
+  <ProfileLink
+    idx={idx}
+    view={view}
+    handleViews={handleViews}
+    link={data}
+    key={makeKey(id, idx)}
+  />
+);
+
+const curriedMapLinkData = curry(mapLinkData);
+const mapLinkDataHandler = (view, handler) => curriedMapLinkData(view, handler);
+
 const ProfileLinks = ({ handleViews, view }) => (
   <ProfileLinksContainer>
-    {linkData.map((data, idx) => (
-      <ProfileLink
-        idx={idx}
-        view={view}
-        handleViews={handleViews}
-        link={data}
-        key={makeKey(id, idx)}
-      />
-    ))}
+    {mapIndexed(mapLinkDataHandler(view, handleViews), linkData)}
   </ProfileLinksContainer>
 );
 export default ProfileLinks;

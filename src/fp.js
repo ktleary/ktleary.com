@@ -1,4 +1,5 @@
 import {
+  addIndex,
   compose,
   concat,
   dec,
@@ -6,12 +7,14 @@ import {
   gt,
   length,
   lt,
+  map,
   tail,
   toLower,
   prop,
   split,
 } from "ramda";
 
+const mapIndexed = addIndex(map);
 const isActive = (x, view) => (equals(toLower(x), view) ? 1 : 0);
 const makeLink = (x) => concat("/", x);
 const makeKey = (id, idx) => `link-${id}-${idx}`;
@@ -29,6 +32,9 @@ const allAfterColon = compose(tail, split(":"));
 const splitMailto = (mailto) => (lenGt1(mailto) ? allAfterColon(mailto) : "");
 const getNameAtt = (e) => prop("currentTarget", e).getAttribute("name");
 
+const currentTargetName = (e) => prop("currentTarget", e).getAttribute("name");
+const lowerCurrentTargetName = compose(toLower, currentTargetName);
+
 export {
   isActive,
   makeLink,
@@ -37,6 +43,8 @@ export {
   idxLessLinkLength,
   getToLower,
   getName,
+  lowerCurrentTargetName,
+  mapIndexed,
   nameIsEmail,
   splitMailto,
   getNameAtt

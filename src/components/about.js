@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { always } from "ramda";
 import { AboutHelmet } from "./helmet";
 const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.89);
@@ -21,16 +22,13 @@ const Link = styled.a`
   }
 `;
 
-const AboutLink = (props) => {
-  const { link, linkText } = props;
-  return (
-    <span>
-      <Link href={link}>{linkText}</Link>
-    </span>
-  );
-};
+const AboutLink = ({ link, linkText }) => (
+  <span>
+    <Link href={link}>{linkText}</Link>
+  </span>
+);
 
-const About = () => (
+const About = always(
   <AboutContainer>
     <AboutHelmet />
     <p>

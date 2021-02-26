@@ -1,9 +1,10 @@
 import React from "react";
 import { CodeHelmet } from "./helmet";
-import { always, compose, prop, toLower } from "ramda";
+import { always, compose, prop } from "ramda";
 import styled from "styled-components";
 import RepoLinks, { repos } from "./repo-links";
 import Projects from "./projects";
+import { lowerCurrentTargetName } from "../fp";
 
 const CodeContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
@@ -11,12 +12,12 @@ const CodeContainer = styled.div`
   max-width: 600px;
 `;
 
-const currentTargetName = (e) => prop("currentTarget", e).getAttribute("name");
-const lowerCurrentTargetName = compose(toLower, currentTargetName);
+const getUrl = (name) => prop("url", repos[name]);
+const urlOpener = compose(window.open, getUrl);
 
 const handleClick = (e) => {
-  const url = prop("url", repos[lowerCurrentTargetName(e)]);
-  return url && window.open(url);
+  const name = lowerCurrentTargetName(e);
+  return urlOpener(name);
 };
 
 const Code = always(
