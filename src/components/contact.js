@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { ContactHelmet } from "./helmet";
-import { compose, curry, equals, find, prop } from "ramda";
+import { compose, curry, equals, find, map, prop } from "ramda";
 import { copyToClipboard } from "../util";
 import { Cell } from "./cell-row";
 import CopyEmail from "./copy-email";
@@ -63,7 +63,7 @@ const SelectedButton = ({ name }) => (
   </Cell>
 );
 
-// -- Util ------
+// -- Helpers ------
 
 const getRepoEmail = (contactData) =>
   splitMailto(prop("url", find(nameIsEmail, contactData)));
@@ -75,6 +75,7 @@ const getUrl = (name) =>
   prop("url", find(contactNameEqUrlWName(name), contactData));
 const getOpenUrl = compose(window.open, getUrl);
 
+// -- Main ------
 const Contact = () => {
   const [showCopy, setShowCopy] = useState(false);
   const [copyBackground, setCopyBackground] = useState(COPYSTATES.NORMAL);
@@ -109,24 +110,28 @@ const Contact = () => {
     <ContactContainer>
       <ContactHelmet />
       <Links>
-        {contactData.map((contact) => (
-          <LinkRow
-            name={prop("name", contact)}
-            onMouseEnter={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
-            data-testid={`link-row-${prop("name", contact)}`}
-          >
-            <SelectedButton name={prop("name", contact)} />
-            <Cell>{prop("name", contact)}</Cell>
-            <CopyEmail
-              handleCopyEmail={handleCopyEmail}
-              copyBackground={copyBackground}
-              contact={contact}
-              showCopy={showCopy}
-            />
-          </LinkRow>
-        ))}
+        {map(
+          (contact) => (
+            <LinkRow
+              name={prop("name", contact)}
+              onMouseEnter={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              onClick={handleClick}
+              data-testid={`link-row-${prop("name", contact)}`}
+              key={`link-row-key-${prop("name", contact)}`}
+            >
+              <SelectedButton name={prop("name", contact)} />
+              <Cell>{prop("name", contact)}</Cell>
+              <CopyEmail
+                handleCopyEmail={handleCopyEmail}
+                copyBackground={copyBackground}
+                contact={contact}
+                showCopy={showCopy}
+              />
+            </LinkRow>
+          ),
+          contactData
+        )}
       </Links>
     </ContactContainer>
   );

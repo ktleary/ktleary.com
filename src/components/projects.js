@@ -78,7 +78,7 @@ const ProjectsSection = styled.h2`
   text-align: center;
 `;
 const ProjectContainer = styled.div`
-  background: rgba(44, 44, 46, 1);
+  background: rgba(32, 32, 33, 1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;

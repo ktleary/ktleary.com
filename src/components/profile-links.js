@@ -51,6 +51,19 @@ const getLowerLinkName = compose(getToLower, getName);
 const getNameToLower = compose(toLower, getName);
 const getTestId = compose(getDataTestIdLower, getName);
 
+const mapLinkData = (view, handleViews, data, idx) => (
+  <ProfileLink
+    idx={idx}
+    view={view}
+    handleViews={handleViews}
+    link={data}
+    key={makeKey(id, idx)}
+  />
+);
+
+const curriedMapLinkData = curry(mapLinkData);
+const mapLinkDataHandler = (view, handler) => curriedMapLinkData(view, handler);
+
 const ProfileLink = ({ view, handleViews, link, idx }) => (
   <LinkContainer>
     <ProfileRouterLink
@@ -65,19 +78,6 @@ const ProfileLink = ({ view, handleViews, link, idx }) => (
     <Slash idx={idx} />
   </LinkContainer>
 );
-
-const mapLinkData = (view, handleViews, data, idx) => (
-  <ProfileLink
-    idx={idx}
-    view={view}
-    handleViews={handleViews}
-    link={data}
-    key={makeKey(id, idx)}
-  />
-);
-
-const curriedMapLinkData = curry(mapLinkData);
-const mapLinkDataHandler = (view, handler) => curriedMapLinkData(view, handler);
 
 const ProfileLinks = ({ handleViews, view }) => (
   <ProfileLinksContainer>

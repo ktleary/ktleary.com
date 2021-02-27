@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render } from "@testing-library/react";
 import Contact from "../components/contact";
 
 it("renders a linkrow for AngelList", () => {
@@ -22,7 +22,6 @@ it("shows the Copy Button after mouseenter Email linkrow", () => {
   expect(copyIcon).toBeInTheDocument();
 });
 
-
 it("hides the Copy Button after mouseLeave Email linkrow", () => {
   const { getByTestId, queryByTitle } = render(<Contact />);
   const emailLinkRow = getByTestId("link-row-Email");
@@ -31,6 +30,5 @@ it("hides the Copy Button after mouseLeave Email linkrow", () => {
   const copyIcon = queryByTitle("Copy");
   expect(copyIcon).not.toBeInTheDocument();
 });
-
 
 afterEach(cleanup);
