@@ -83,8 +83,8 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 4px;
-  min-width: 284px;
-  max-width: 284px;
+  min-width: 320px;
+  max-width: 320px;
   width: 100%;
   flex: 1;
   padding: 0;

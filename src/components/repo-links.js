@@ -19,12 +19,7 @@ export const repos = {
     name: "SourceHut",
     url: "https://sr.ht/~djlooop",
     icon: <SourceHutIcon />,
-  },
-  github: {
-    name: "GitHub",
-    url: "https://github.com/ktleary",
-    icon: <GitHubIcon />,
-  },
+  }
 };
 
 const Links = styled.div`

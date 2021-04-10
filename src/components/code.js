@@ -9,7 +9,7 @@ import { lowerCurrentTargetName } from "../fp";
 const CodeContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
   margin: 32px auto;
-  max-width: 600px;
+  max-width: 700px;
 `;
 
 const getUrl = (name) => prop("url", repos[name]);
