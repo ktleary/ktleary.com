@@ -23,9 +23,7 @@ it("finds github and sourcehut repo links", () => {
 
   render(<RepoLinks handleClick={handleClick} />);
   const sourceHutLink = screen.getByTestId("repo-link-SourceHut");
-  const gitHubLink = screen.getByTestId("repo-link-GitHub");
   expect(sourceHutLink).toBeInTheDocument();
-  expect(gitHubLink).toBeInTheDocument();
 });
 
 afterEach(cleanup);
