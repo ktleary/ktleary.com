@@ -19,7 +19,11 @@ const AppContainer = styled.div`
 
 function App() {
   const [view, setView] = useState(views.landing);
-  const handleViews = (event) => setView(prop("name", event.target));
+  const handleViews = (event) => {
+    let targetName =
+      prop("name", event.target) || prop("name", event.currentTarget);
+    setView(targetName);
+  };
 
   return (
     <AppContainer>

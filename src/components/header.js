@@ -24,6 +24,7 @@ const Title = styled.h1`
 
 const TitleLink = styled.a`
   text-decoration: none;
+  cursor: pointer;
   &:hover: {
     color: rgba(255, 255, 255, 0.87);
   }
@@ -41,11 +42,7 @@ const TitleLink = styled.a`
 
 const Header = ({ handleViews }) => (
   <TitleContainer>
-    <TitleLink
-      onClick={handleViews}
-      name={views.landing}
-      alt="ktleary.com"
-    >
+    <TitleLink onClick={handleViews} name={views.landing} alt="ktleary.com">
       <Title data-testid="header-title">Kevin T Leary</Title>
     </TitleLink>
   </TitleContainer>

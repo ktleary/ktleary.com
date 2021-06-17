@@ -9,8 +9,19 @@ import {
   getName,
   mapIndexed,
 } from "../fp";
-import { linkData } from "../constants";
+import {
+  activeColor,
+  activeColorHover,
+  inactiveColor,
+  inactiveColorHover,
+  linkData,
+} from "../constants";
 const id = always(nanoid());
+
+// -- Helpers ------
+
+const getDataTestId = (name) => concat("profile-link-", toLower(name));
+const getTestId = compose(getDataTestId, getName);
 
 // -- Styles -------
 
@@ -21,14 +32,12 @@ const ProfileLinksContainer = styled.div`
 `;
 
 const ProfileRouterLink = styled.a`
-  color: ${({ active }) =>
-    active ? "rgba(255.0, 149.0, 0.0, 1.0)" : "rgba(235.0, 235.0, 245.0, 0.6)"};
+  color: ${({ active }) => (active ? activeColor : inactiveColor)};
   cursor: pointer;
   text-decoration: none;
   font-size: 4vmin;
   &:hover {
-    color: ${({ active }) =>
-      active ? "rgba(255.0, 149.0, 0.0, 1.0)" : "rgba(255, 255, 255, 1.0)"};
+    color: ${({ active }) => (active ? activeColorHover : inactiveColorHover)};
     text-decoration: none;
   }
 `;
@@ -39,19 +48,17 @@ const SlashStyle = styled.span`
 `;
 const LinkContainer = styled.span``;
 
+// Components
+
 const Slash = ({ idx }) =>
   idxLessLinkLength(idx, linkData) ? (
     <SlashStyle>&nbsp;/&nbsp;</SlashStyle>
   ) : null;
-const getDataTestId = (name) => concat("profile-link-", name);
-const getDataTestIdLower = compose(getDataTestId, toLower);
-const getNameToLower = compose(toLower, getName);
-const getTestId = compose(getDataTestIdLower, getName);
 
 const ProfileLink = ({ view, handleViews, link, idx }) => (
   <LinkContainer>
     <ProfileRouterLink
-      name={getNameToLower(link)}
+      name={toLower(getName(link))}
       onClick={handleViews}
       active={isActive(getName(link), view)}
       data-testid={getTestId(link)}

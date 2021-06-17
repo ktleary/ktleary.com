@@ -5,6 +5,13 @@ export const views = Object.freeze({
   contact: "contact",
 });
 
+
+export const activeColor = "rgba(255.0, 149.0, 0.0, 1.0)";
+export const activeColorHover = "rgba(255.0, 149.0, 0.0, 1.0)";
+export const inactiveColor = "rgba(235.0, 235.0, 245.0, 0.6)";
+export const inactiveColorHover = "rgba(255, 255, 255, 1.0)";
+
+
 export const linkData = [
   { name: "About", url: "https://angel.co/u/ktleary", color: "#ffeb3b" },
   { name: "Code", url: "https://github.com/ktleary", color: "#2196f3" },

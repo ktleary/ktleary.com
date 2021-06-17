@@ -4,7 +4,7 @@ import { always } from "ramda";
 import { AboutHelmet } from "./helmet";
 const AboutContainer = styled.div`
   color: rgba(255, 255, 255, 0.89);
-  font-size: calc(8px + 2vmin);
+  font-size: 16px;
   margin: 32px auto;
   max-width: 600px;
   padding: 0 32px;
