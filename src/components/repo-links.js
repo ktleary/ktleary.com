@@ -8,18 +8,12 @@ const SourceHutIcon = styled(SourceHutButton)`
   width: 18px;
 `;
 
-const GitHubIcon = styled(GitHubButton)`
-  color: rgba(255, 255, 255, 0.66);
-  height: 18px;
-  width: 18px;
-`;
-
 export const repos = {
   sourcehut: {
     name: "SourceHut",
     url: "https://sr.ht/~djlooop",
     icon: <SourceHutIcon />,
-  }
+  },
 };
 
 const Links = styled.div`
@@ -53,7 +47,11 @@ const Cell = styled.div`
 function RepoLink(props) {
   const { name, handleClick } = props;
   return (
-    <LinkRow data-testid={`repo-link-${name}`} name={name} onClick={handleClick}>
+    <LinkRow
+      data-testid={`repo-link-${name}`}
+      name={name}
+      onClick={handleClick}
+    >
       <Cell>{name === "GitHub" ? <GitHubButton /> : <SourceHutButton />}</Cell>
       <Cell>{name}</Cell>
     </LinkRow>

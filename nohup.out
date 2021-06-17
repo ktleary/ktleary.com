@@ -1,6 +1,0 @@
-
-(sublime_text:2): GLib-GObject-CRITICAL **: 17:21:23.660: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
-
-(sublime_text:2): GLib-GObject-CRITICAL **: 17:26:29.614: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
-
-(sublime_text:2): GLib-GObject-CRITICAL **: 19:57:48.612: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
