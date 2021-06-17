@@ -4,11 +4,32 @@ import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
 
 const projectData = [
   {
-    name: "invidi.link",
+    name: "Twit2Nit",
+    description:
+      "Twit2Nit lets you browse Nitter by supplying a Twitter user name or URL. Users may selected from a list of available instances or choose from a list of available instances. Instances are polled on a regular basis to ensure they are up and running.",
+    repoUrl: "https://sr.ht/~djlooop/twit2nit/",
+    siteUrl: "https://twit2nit.xyz",
+  },
+  {
+    name: "Invidilink",
     description:
       "Invidilinks is a mobile-first tool used to convert URLs into invidio.us links. It works by fetching real-time instances data and rewriting the supplied url in the browser. It also provides an option to supply the url as a parameter.",
     repoUrl: "https://sr.ht/~djlooop/invidi.link/",
     siteUrl: "https://invidi.link",
+  },
+  {
+    name: "Termite Viewer",
+    description:
+      "Termite Viewer uses Natural Language Processing (NLP) to extract and analyze content from user-supplied URLs. Content is broken down into: Word Count, Sentiment Score, Quotations, Social Media Handles, Content Metadata, Raw Text, Images, Urls",
+    repoUrl: "https://git.sr.ht/~djlooop/termite.moe",
+    siteUrl: "https://termite.moe",
+  },
+  {
+    name: "Hegel",
+    description:
+      "Hegel app guides users through the Hegelian Dialectic by asking for  1)Concept: The idea you want to evolve. 2) Negation: What the original concept is not. 3) Synthesis: An idea which encompasses both the original and its negation.",
+    repoUrl: "https://git.sr.ht/~djlooop/hegel",
+    siteUrl: "https://stringtalk.org/hegel",
   },
   {
     name: "Genstar",
@@ -16,13 +37,6 @@ const projectData = [
       "Genstar is a web-based tool for interactively creating story lines including plot, conflict type, characters, character attributes and story setting. Click on any of part of the story line to replace it with a randomly generated replacement.",
     repoUrl: "https://git.sr.ht/~djlooop/genstr",
     siteUrl: "https://stringtalk.org/genstar/",
-  },
-  {
-    name: "Days",
-    description:
-      "Information about current, past and present days including day of the week, year, as well as moon phase and sun sign.",
-    repoUrl: "https://git.sr.ht/~djlooop/days",
-    siteUrl: "https://stringtalk.org/days",
   },
   {
     name: "Summer of Letters",
@@ -114,7 +128,7 @@ const ProjectTitle = styled.h3`
 `;
 
 const ProjectDescription = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   height: 100%;
   margin: 0 0;
   padding: 8px 16px;

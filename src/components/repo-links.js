@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { GitHubButton, SourceHutButton } from "./buttons";
+import { keys, map } from "ramda";
+import { SourceHutButton } from "./buttons";
 
 const SourceHutIcon = styled(SourceHutButton)`
   color: rgba(255, 255, 255, 0.78);
@@ -44,32 +45,26 @@ const Cell = styled.div`
   vertical-align: middle;
 `;
 
-function RepoLink(props) {
-  const { name, handleClick } = props;
-  return (
-    <LinkRow
-      data-testid={`repo-link-${name}`}
-      name={name}
-      onClick={handleClick}
-    >
-      <Cell>{name === "GitHub" ? <GitHubButton /> : <SourceHutButton />}</Cell>
-      <Cell>{name}</Cell>
-    </LinkRow>
-  );
-}
+const RepoLink = ({ name, handleClick }) => (
+  <LinkRow data-testid={`repo-link-${name}`} name={name} onClick={handleClick}>
+    <Cell>
+      <SourceHutButton />
+    </Cell>
+    <Cell>{name}</Cell>
+  </LinkRow>
+);
 
-export default function RepoLinks(props) {
-  const { handleClick } = props;
-  return (
-    <Links>
-      {Object.keys(repos).map((repo, i) => (
-        <RepoLink
-          name={repos[repo].name}
-          url={repos[repo].url}
-          handleClick={handleClick}
-          key={repo}
-        />
-      ))}
-    </Links>
-  );
-}
+const makeRepoLink = (handleClick) => (repo, i) => (
+  <RepoLink
+    name={repos[repo].name}
+    url={repos[repo].url}
+    handleClick={handleClick}
+    key={repo}
+  />
+);
+
+const RepoLinks = ({ handleClick }) => (
+  <Links>{map(makeRepoLink(handleClick), keys(repos))}</Links>
+);
+
+export default RepoLinks;
