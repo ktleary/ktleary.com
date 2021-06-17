@@ -1,16 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-import { always, compose, concat, curry, toLower } from "ramda";
+import { always, compose, concat, toLower } from "ramda";
 import {
   isActive,
   makeKey,
   idxLessLinkLength,
-  getToLower,
   getName,
   mapIndexed,
 } from "../fp";
-import { Link } from "react-router-dom";
 import { linkData } from "../constants";
 const id = always(nanoid());
 
@@ -22,7 +20,7 @@ const ProfileLinksContainer = styled.div`
   margin: 0;
 `;
 
-const ProfileRouterLink = styled(Link)`
+const ProfileRouterLink = styled.a`
   color: ${({ active }) =>
     active ? "rgba(255.0, 149.0, 0.0, 1.0)" : "rgba(235.0, 235.0, 245.0, 0.6)"};
   cursor: pointer;
@@ -47,27 +45,12 @@ const Slash = ({ idx }) =>
   ) : null;
 const getDataTestId = (name) => concat("profile-link-", name);
 const getDataTestIdLower = compose(getDataTestId, toLower);
-const getLowerLinkName = compose(getToLower, getName);
 const getNameToLower = compose(toLower, getName);
 const getTestId = compose(getDataTestIdLower, getName);
-
-const mapLinkData = (view, handleViews, data, idx) => (
-  <ProfileLink
-    idx={idx}
-    view={view}
-    handleViews={handleViews}
-    link={data}
-    key={makeKey(id, idx)}
-  />
-);
-
-const curriedMapLinkData = curry(mapLinkData);
-const mapLinkDataHandler = (view, handler) => curriedMapLinkData(view, handler);
 
 const ProfileLink = ({ view, handleViews, link, idx }) => (
   <LinkContainer>
     <ProfileRouterLink
-      to={getLowerLinkName(link)}
       name={getNameToLower(link)}
       onClick={handleViews}
       active={isActive(getName(link), view)}
@@ -79,9 +62,20 @@ const ProfileLink = ({ view, handleViews, link, idx }) => (
   </LinkContainer>
 );
 
+const mapLinkData = (view, handleViews) => (data, idx) => (
+  <ProfileLink
+    idx={idx}
+    view={view}
+    handleViews={handleViews}
+    link={data}
+    key={makeKey(id, idx)}
+  />
+);
+
+// ProfileLinks:: (Fx, String) -> String
 const ProfileLinks = ({ handleViews, view }) => (
   <ProfileLinksContainer>
-    {mapIndexed(mapLinkDataHandler(view, handleViews), linkData)}
+    {mapIndexed(mapLinkData(view, handleViews), linkData)}
   </ProfileLinksContainer>
 );
 export default ProfileLinks;

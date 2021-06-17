@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { views } from "../constants";
 
@@ -23,7 +22,7 @@ const Title = styled.h1`
   padding-top: 16px;
 `;
 
-const TitleLink = styled(Link)`
+const TitleLink = styled.a`
   text-decoration: none;
   &:hover: {
     color: rgba(255, 255, 255, 0.87);
@@ -45,7 +44,6 @@ const Header = ({ handleViews }) => (
     <TitleLink
       onClick={handleViews}
       name={views.landing}
-      to="/"
       alt="ktleary.com"
     >
       <Title data-testid="header-title">Kevin T Leary</Title>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { prop } from "ramda";
 import { HomeHelmet } from "./components/helmet";
 import Header from "./components/header";
@@ -18,35 +17,19 @@ const AppContainer = styled.div`
   width: 100vw;
 `;
 
-const Routes = () => (
-  <Switch>
-    <Route path="/about">
-      <About />
-    </Route>
-    <Route path="/code">
-      <Code />
-    </Route>
-    <Route path="/contact">
-      <Contact />
-    </Route>
-    <Route path="/">
-      <Landing />
-    </Route>
-  </Switch>
-);
-
 function App() {
   const [view, setView] = useState(views.landing);
-  const handleViews = (e) => setView(prop("name", e.target));
+  const handleViews = (event) => setView(prop("name", event.target));
 
   return (
     <AppContainer>
-      <Router>
-        <HomeHelmet />
-        <Header handleViews={handleViews} />
-        <ProfileLinks handleViews={handleViews} view={view} />
-        <Routes />
-      </Router>
+      <HomeHelmet />
+      <Header handleViews={handleViews} />
+      <ProfileLinks handleViews={handleViews} view={view} />
+      {view === views.landing && <Landing />}
+      {view === views.about && <About />}
+      {view === views.code && <Code />}
+      {view === views.contact && <Contact />}
     </AppContainer>
   );
 }
