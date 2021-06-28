@@ -11,7 +11,9 @@ import Landing from "./components/landing";
 import { views } from "./constants";
 
 const AppContainer = styled.div`
-  height: 100vh;
+  background: #1b1b1b;
+  min-height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   width: 100vw;

@@ -8,6 +8,8 @@ import { lowerCurrentTargetName } from "../fp";
 
 const CodeContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
+  min-height: 100vw;
+  height: 100%;
   margin: 32px auto;
   max-width: 700px;
 `;
