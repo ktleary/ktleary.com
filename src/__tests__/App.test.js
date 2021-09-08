@@ -1,9 +1,9 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
 
-test("it renders Kevin T Leary", () => {
+test("it renders Kevin Leary", () => {
   render(<App />);
-  const headerText = "Kevin T Leary";
+  const headerText = "Kevin Leary";
   const headerTextElement = screen.getByTestId("header-title");
   expect(headerTextElement).toHaveTextContent(headerText);
 });

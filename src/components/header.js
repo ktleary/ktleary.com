@@ -43,7 +43,7 @@ const TitleLink = styled.a`
 const Header = ({ handleViews }) => (
   <TitleContainer>
     <TitleLink onClick={handleViews} name={views.landing} alt="ktleary.com">
-      <Title data-testid="header-title">Kevin T Leary</Title>
+      <Title data-testid="header-title">Kevin Leary</Title>
     </TitleLink>
   </TitleContainer>
 );
