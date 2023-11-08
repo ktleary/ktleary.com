@@ -6,6 +6,8 @@ This is the repository for my personal website, ktleary.com, where I showcase my
 
 This project is a single-page web application built using React.js and styled with Styled Components. It showcases my software development projects and provides a way to reach out to me for potential collaborations or inquiries.
 
+![ktleary.com screen](ktleary-com.png)
+
 ## Installation
 
 To run this website locally, follow these steps:
