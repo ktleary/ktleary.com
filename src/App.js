@@ -11,12 +11,11 @@ import Landing from "./components/landing";
 import { views } from "./constants";
 
 const AppContainer = styled.div`
-  background: #1b1b1b;
+  background: #212121;
   min-height: 100vh;
   height: 100%;
   margin: 0;
   padding: 0;
-  width: 100vw;
 `;
 
 function App() {
