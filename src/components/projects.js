@@ -2,8 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
 import Twit2NitIcon from "./app-icons/Twit2NitIcon";
+import MorIcon from "./app-icons/MorIcon";
 
 const projectData = [
+  {
+    name: "Mor",
+    description:
+      "Mor is a social calendar platform that lets you create and share events with friends.",
+    repoUrl: null,
+    siteUrl: null,
+  },
   {
     name: "twit2nit",
     description:
@@ -12,16 +20,16 @@ const projectData = [
     siteUrl: "https://twit2nit.xyz",
   },
   {
-    name: "Invidilink",
+    name: "invidilink",
     description:
-      "Invidilinks is a mobile-first tool used to convert URLs into invidio.us links. It works by fetching real-time instances data and rewriting the supplied url in the browser. It also provides an option to supply the url as a parameter.",
+      "Invidilinks is a mobile-first tool used to convert URLs into invidio.us links. It works by fetching real-time instances data and rewriting the supplied url in the browser.",
     repoUrl: "https://sr.ht/~djlooop/invidi.link/",
     siteUrl: "https://invidi.link",
   },
   {
     name: "Termite Viewer",
     description:
-      "Termite Viewer uses Natural Language Processing (NLP) to extract and analyze content from user-supplied URLs. Content is broken down into: Word Count, Sentiment Score, Quotations, Social Media Handles, Content Metadata, Raw Text, Images, Urls",
+      "Termite Viewer uses Natural Language Processing (NLP) to extract and analyze content from user-supplied URLs. ",
     repoUrl: "https://git.sr.ht/~djlooop/termite.moe",
     siteUrl: "https://termite.moe",
   },
@@ -82,7 +90,7 @@ const GitHubIcon = styled(GitHubButton)`
 
 const ProjectsContainer = styled.div`
   padding: 0 2vw;
-  background: red;
+  background: #212121;
 `;
 const ProjectsSection = styled.h2`
   color: rgba(255, 255, 255, 0.78);
@@ -98,14 +106,19 @@ const ProjectContainer = styled.div`
   border: 1px solid #424242;
   display: flex;
   flex-direction: row;
-  margin: 8px 16px;
+  margin: 16px 16px;
   padding: 0;
   height: 12vh;
   padding: 1.5rem;
   width: 33vw;
-  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
-`;
+  box-shadow: 0px 2px 3px rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transition properties */
 
+  &:hover {
+    box-shadow: 0px 6px 9px rgba(255, 255, 255, 0.2); /* Adjust shadow on hover */
+    transform: translateY(-4px); /* Elevate the container on hover */
+  }
+`;
 const ProjectDetails = styled.div`
   display: flex;
   margin: 8px;
@@ -115,7 +128,7 @@ const ProjectDetails = styled.div`
     justify-content: center;
   }
   padding-bottom: 24px;
-  background: blue;
+  background: #212121;
 `;
 
 const ProjectTitle = styled.h3`
@@ -125,9 +138,8 @@ const ProjectTitle = styled.h3`
   font-weight: 700;
   display: flex;
   margin: 0;
-  padding: 8px;
   padding-left: 16px;
-  vertical-align: middle;
+ 
   letter-spacing: -0.3px;
 `;
 
@@ -135,7 +147,7 @@ const ProjectDescription = styled.div`
   font-size: 16px;
   height: 100%;
   margin: 0 0;
-  padding: 8px 16px;
+  padding: 0 16px;
   line-height: 1.25;
   letter-spacing: -0.15px;
 `;
@@ -199,11 +211,14 @@ function ProjectLinkButton(props) {
   }
 }
 
+const AppIcons = {
+  twit2nit: <Twit2NitIcon />,
+  Mor: <MorIcon />,
+};
+
 const Project = ({ name, description, repoUrl, siteUrl }) => (
   <ProjectContainer>
-    <ProjectIconWrapper>
-      <Twit2NitIcon />
-    </ProjectIconWrapper>
+    <ProjectIconWrapper>{AppIcons[name]}</ProjectIconWrapper>
     <ProjectContentWrapper>
       <ProjectTitle>{name}</ProjectTitle>
       <ProjectDescription>{description}</ProjectDescription>
