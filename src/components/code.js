@@ -11,7 +11,6 @@ const CodeContainer = styled.div`
   min-height: 100vh;
   height: 100%;
   margin: 32px auto;
-  max-width: 700px;
 `;
 
 const getUrl = (name) => prop("url", repos[name]);

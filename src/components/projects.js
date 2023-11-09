@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
+import Twit2NitIcon from "./app-icons/Twit2NitIcon";
 
 const projectData = [
   {
-    name: "Twit2Nit",
+    name: "twit2nit",
     description:
-      "Twit2Nit lets you browse Nitter by supplying a Twitter user name or URL. Users may selected from a list of available instances or choose from a list of available instances. Instances are polled on a regular basis to ensure they are up and running.",
+      "View Twitter links and users on a known good Nitter instance.",
     repoUrl: "https://sr.ht/~djlooop/twit2nit/",
     siteUrl: "https://twit2nit.xyz",
   },
@@ -80,8 +81,8 @@ const GitHubIcon = styled(GitHubButton)`
 `;
 
 const ProjectsContainer = styled.div`
-  margin-top: 16px;
-  padding: 0;
+  padding: 0 2vw;
+  background: red;
 `;
 const ProjectsSection = styled.h2`
   color: rgba(255, 255, 255, 0.78);
@@ -92,39 +93,42 @@ const ProjectsSection = styled.h2`
   text-align: center;
 `;
 const ProjectContainer = styled.div`
-  background: rgba(32, 32, 33, 1);
-  border-radius: 8px;
+  background: #212121;
+  border-radius: 0.75rem;
+  border: 1px solid #424242;
   display: flex;
-  flex-direction: column;
-  margin: 4px;
-  min-width: 320px;
-  max-width: 320px;
-  width: 100%;
-  flex: 1;
+  flex-direction: row;
+  margin: 8px 16px;
   padding: 0;
+  height: 12vh;
+  padding: 1.5rem;
+  width: 33vw;
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
 `;
 
 const ProjectDetails = styled.div`
   display: flex;
   margin: 8px;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
   @media (max-width: 444px) {
     justify-content: center;
   }
   padding-bottom: 24px;
+  background: blue;
 `;
 
 const ProjectTitle = styled.h3`
   align-items: center;
   color: rgba(255, 255, 255, 0.87);
-  font-size: 16px;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: 700;
   display: flex;
   margin: 0;
   padding: 8px;
   padding-left: 16px;
   vertical-align: middle;
+  letter-spacing: -0.3px;
 `;
 
 const ProjectDescription = styled.div`
@@ -132,6 +136,8 @@ const ProjectDescription = styled.div`
   height: 100%;
   margin: 0 0;
   padding: 8px 16px;
+  line-height: 1.25;
+  letter-spacing: -0.15px;
 `;
 
 const ProjectLinks = styled.div`
@@ -145,6 +151,21 @@ const LinkContainer = styled.div`
   cursor: pointer;
   margin-right: 8px;
   text-decoration: none;
+`;
+
+const ProjectIconWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 8px;
+  width: 4vw;
+`;
+
+const ProjectContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 `;
 
 function ProjectLinkButton(props) {
@@ -178,11 +199,12 @@ function ProjectLinkButton(props) {
   }
 }
 
-function Project(props) {
-  const { name, description, repoUrl, siteUrl } = props;
-
-  return (
-    <ProjectContainer>
+const Project = ({ name, description, repoUrl, siteUrl }) => (
+  <ProjectContainer>
+    <ProjectIconWrapper>
+      <Twit2NitIcon />
+    </ProjectIconWrapper>
+    <ProjectContentWrapper>
       <ProjectTitle>{name}</ProjectTitle>
       <ProjectDescription>{description}</ProjectDescription>
       <ProjectLinks>
@@ -193,19 +215,19 @@ function Project(props) {
           <ProjectLinkButton name={name} linkType="siteUrl" url={siteUrl} />
         )}
       </ProjectLinks>
-    </ProjectContainer>
-  );
-}
+    </ProjectContentWrapper>
+  </ProjectContainer>
+);
 
-export default function Projects(props) {
-  return (
-    <ProjectsContainer>
-      <ProjectsSection>Projects</ProjectsSection>
-      <ProjectDetails>
-        {projectData.map((project) => (
-          <Project {...project} key={project.name} />
-        ))}
-      </ProjectDetails>
-    </ProjectsContainer>
-  );
-}
+const Projects = () => (
+  <ProjectsContainer>
+    <ProjectsSection>Projects built with ❤️</ProjectsSection>
+    <ProjectDetails>
+      {projectData.map((project) => (
+        <Project {...project} key={project.name} />
+      ))}
+    </ProjectDetails>
+  </ProjectsContainer>
+);
+
+export default Projects;
