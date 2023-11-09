@@ -18,7 +18,7 @@ const IconImage = styled.img`
   border-radius: 0.75rem;
 `;
 
-const Twit2NitIcon = ({ icon, size, color, style }) => {
+const MorIcon = ({ icon, size, color, style }) => {
   return (
     <AppIconWrapper>
       <IconImage src={moricon} alt="moricon" />
@@ -26,4 +26,4 @@ const Twit2NitIcon = ({ icon, size, color, style }) => {
   );
 };
 
-export default Twit2NitIcon;
+export default MorIcon;

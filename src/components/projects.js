@@ -1,16 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
-import Twit2NitIcon from "./app-icons/Twit2NitIcon";
 import MorIcon from "./app-icons/MorIcon";
+import Twit2NitIcon from "./app-icons/Twit2NitIcon";
+import AlerterIcon from "./app-icons/AlerterIcon";
+import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
+import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
 
 const projectData = [
   {
     name: "Mor",
     description:
-      "Mor is a social calendar platform that lets you create and share events with friends.",
+      "Mor is the social calendar platform that lets you create and share events with friends.",
     repoUrl: null,
     siteUrl: null,
+    ios: true,
+    web: true,
+    openfin: false,
+    opensource: false,
+  },
+  {
+    name: "Alerter",
+    description:
+      "Alerter displays real-time price target matches for traders at a capital markets bank.",
+    repoUrl: null,
+    siteUrl: null,
+    ios: false,
+    web: false,
+    openfin: true,
+    opensource: false,
   },
   {
     name: "twit2nit",
@@ -18,6 +35,10 @@ const projectData = [
       "View Twitter links and users on a known good Nitter instance.",
     repoUrl: "https://sr.ht/~djlooop/twit2nit/",
     siteUrl: "https://twit2nit.xyz",
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: true,
   },
   {
     name: "invidilink",
@@ -139,7 +160,7 @@ const ProjectTitle = styled.h3`
   display: flex;
   margin: 0;
   padding-left: 16px;
- 
+
   letter-spacing: -0.3px;
 `;
 
@@ -150,6 +171,7 @@ const ProjectDescription = styled.div`
   padding: 0 16px;
   line-height: 1.25;
   letter-spacing: -0.15px;
+  margin-top: 4px;
 `;
 
 const ProjectLinks = styled.div`
@@ -178,6 +200,17 @@ const ProjectContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+`;
+
+const LabelRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 8px;
+  align-items: center;
+  margin-top: 4px;
+  padding-left: 16px;
 `;
 
 function ProjectLinkButton(props) {
@@ -214,29 +247,37 @@ function ProjectLinkButton(props) {
 const AppIcons = {
   twit2nit: <Twit2NitIcon />,
   Mor: <MorIcon />,
+  Alerter: <AlerterIcon />,
 };
 
-const Project = ({ name, description, repoUrl, siteUrl }) => (
+const Project = ({
+  name,
+  description,
+  repoUrl,
+  siteUrl,
+  ios,
+  web,
+  openfin,
+  opensource,
+}) => (
   <ProjectContainer>
     <ProjectIconWrapper>{AppIcons[name]}</ProjectIconWrapper>
     <ProjectContentWrapper>
       <ProjectTitle>{name}</ProjectTitle>
       <ProjectDescription>{description}</ProjectDescription>
-      <ProjectLinks>
-        {repoUrl && (
-          <ProjectLinkButton name={name} linkType="repoUrl" url={repoUrl} />
-        )}
-        {siteUrl && (
-          <ProjectLinkButton name={name} linkType="siteUrl" url={siteUrl} />
-        )}
-      </ProjectLinks>
+      <LabelRow>
+        {ios && <LabelIos />}
+        {web && <LabelWeb />}
+        {openfin && <LabelOpenFin />}
+        {opensource && <LabelOpenSource />}
+      </LabelRow>
     </ProjectContentWrapper>
   </ProjectContainer>
 );
 
 const Projects = () => (
   <ProjectsContainer>
-    <ProjectsSection>Projects built with ❤️</ProjectsSection>
+    <ProjectsSection>Apps built with ❤️</ProjectsSection>
     <ProjectDetails>
       {projectData.map((project) => (
         <Project {...project} key={project.name} />
@@ -246,3 +287,14 @@ const Projects = () => (
 );
 
 export default Projects;
+
+/*
+ <ProjectLinks>
+        {repoUrl && (
+          <ProjectLinkButton name={name} linkType="repoUrl" url={repoUrl} />
+        )}
+        {siteUrl && (
+          <ProjectLinkButton name={name} linkType="siteUrl" url={siteUrl} />
+        )}
+      </ProjectLinks>
+      */
