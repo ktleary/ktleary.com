@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MorIcon from "./app-icons/MorIcon";
 import Twit2NitIcon from "./app-icons/Twit2NitIcon";
 import AlerterIcon from "./app-icons/AlerterIcon";
+import InvidilinkIcon from "./app-icons/InvidilinkIcon";
 import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
 import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
 
@@ -41,11 +42,15 @@ const projectData = [
     opensource: true,
   },
   {
-    name: "invidilink",
+    name: "invidi.link",
     description:
-      "Invidilinks is a mobile-first tool used to convert URLs into invidio.us links. It works by fetching real-time instances data and rewriting the supplied url in the browser.",
+      "Convert YouTube links to invidious and redirect to a good instance.",
     repoUrl: "https://sr.ht/~djlooop/invidi.link/",
     siteUrl: "https://invidi.link",
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: true,
   },
   {
     name: "Termite Viewer",
@@ -248,6 +253,7 @@ const AppIcons = {
   twit2nit: <Twit2NitIcon />,
   Mor: <MorIcon />,
   Alerter: <AlerterIcon />,
+  "invidi.link": <InvidilinkIcon />,
 };
 
 const Project = ({
