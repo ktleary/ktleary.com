@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import MorIcon from "./app-icons/MorIcon";
-import Twit2NitIcon from "./app-icons/Twit2NitIcon";
+import { useOverlay } from "../OverlayContext";
 import AlerterIcon from "./app-icons/AlerterIcon";
 import InvidilinkIcon from "./app-icons/InvidilinkIcon";
+import MorIcon from "./app-icons/MorIcon";
+import Twit2NitIcon from "./app-icons/Twit2NitIcon";
 import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
 import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
 
@@ -265,21 +266,29 @@ const Project = ({
   web,
   openfin,
   opensource,
-}) => (
-  <ProjectContainer>
-    <ProjectIconWrapper>{AppIcons[name]}</ProjectIconWrapper>
-    <ProjectContentWrapper>
-      <ProjectTitle>{name}</ProjectTitle>
-      <ProjectDescription>{description}</ProjectDescription>
-      <LabelRow>
-        {ios && <LabelIos />}
-        {web && <LabelWeb />}
-        {openfin && <LabelOpenFin />}
-        {opensource && <LabelOpenSource />}
-      </LabelRow>
-    </ProjectContentWrapper>
-  </ProjectContainer>
-);
+}) => {
+  const { openOverlay } = useOverlay();
+
+  const handleOpenOverlay = () => {
+    openOverlay({ name, description }); // Pass the project data to the overlay
+  };
+
+  return (
+    <ProjectContainer onClick={handleOpenOverlay}>
+      <ProjectIconWrapper>{AppIcons[name]}</ProjectIconWrapper>
+      <ProjectContentWrapper>
+        <ProjectTitle>{name}</ProjectTitle>
+        <ProjectDescription>{description}</ProjectDescription>
+        <LabelRow>
+          {ios && <LabelIos />}
+          {web && <LabelWeb />}
+          {openfin && <LabelOpenFin />}
+          {opensource && <LabelOpenSource />}
+        </LabelRow>
+      </ProjectContentWrapper>
+    </ProjectContainer>
+  );
+};
 
 const Projects = () => (
   <ProjectsContainer>
