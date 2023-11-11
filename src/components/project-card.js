@@ -5,15 +5,16 @@ import { useOverlay } from "../OverlayContext";
 
 const Overlay = styled(animated.div)`
   display: flex;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: 0;
   left: 0;
   z-index: 10;
   background-color: orange;
   justify-content: center;
   align-items: center;
+  border-radius: 16px;
 `;
 
 const Card = styled(animated.div)`
@@ -30,26 +31,24 @@ const ProjectCardStyled = styled.div`
   /* Additional styling */
 `;
 
-const ProjectCard = ({ projectData, isOpen, onClose }) => {
-  console.log("isopen", isOpen);
-
+const ProjectCard = () => {
   const { overlayContent, closeOverlay } = useOverlay();
 
   const overlayAnimation = useSpring({
-    opacity: isOpen ? 1 : 0,
+    opacity: overlayContent ? 1 : 0,
     // other animation properties
   });
 
   const cardAnimation = useSpring({
-    transform: isOpen ? `translateY(0)` : `translateY(-100%)`,
+    transform: overlayContent ? `translateY(0)` : `translateY(-100%)`,
     // other animation properties
   });
   if (!overlayContent) return null;
 
   return (
     <>
-      <Overlay onClick={onClose}>
-        <Card>
+      <Overlay style={overlayAnimation}>
+        <Card style={cardAnimation}>
           <h1>the card goes here</h1>
           <button onClick={closeOverlay}>Close</button>
         </Card>

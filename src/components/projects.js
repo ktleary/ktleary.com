@@ -116,7 +116,6 @@ const GitHubIcon = styled(GitHubButton)`
 `;
 
 const ProjectsContainer = styled.div`
-  padding: 0 2vw;
   background: #212121;
 `;
 const ProjectsSection = styled.h2`
@@ -137,7 +136,9 @@ const ProjectContainer = styled.div`
   padding: 0;
   height: 12vh;
   padding: 1.5rem;
-  width: 33vw;
+  @media (min-width: 444px) {
+    width: 33vw;
+  }
   box-shadow: 0px 2px 3px rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transition properties */
 
