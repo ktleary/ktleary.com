@@ -1,24 +1,51 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useOverlay } from "../OverlayContext";
-import AlerterIcon from "./app-icons/AlerterIcon";
-import InvidilinkIcon from "./app-icons/InvidilinkIcon";
-import MorIcon from "./app-icons/MorIcon";
-import Twit2NitIcon from "./app-icons/Twit2NitIcon";
+import AppIcons from "./app-icons/AppIcons";
 import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
 import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
+import whatsAppShare from "./assets/mor/whatsapp-share.png";
+import socialprofile from "./assets/mor/social-profile.jpg";
+import homescreen from "./assets/mor/homescreen.jpg";
+import library from "./assets/mor/library.jpg";
 
 const projectData = [
   {
-    name: "Mor",
-    description:
-      "Mor is the social calendar platform that lets you create and share events with friends.",
+    name: "Mor Life",
+    description: "The calendar that schedules you.",
     repoUrl: null,
     siteUrl: null,
     ios: true,
     web: true,
     openfin: false,
     opensource: false,
+    screenshots: [
+      {
+        src: homescreen,
+        alt: "Mor Life Homescreen",
+        caption: "Mor Life Homescreen",
+        title: "Mor Life Homescreen",
+      },
+      {
+        src: library,
+        alt: "Mor Life Library",
+        caption: "Mor Life Library",
+        title: "Mor Life Library",
+      },
+      {
+        src: socialprofile,
+        alt: "Social Profile",
+        caption: "Social Profile",
+        title: "Social Profile",
+      },
+      {
+        src: whatsAppShare,
+        //"./assets/mor/whatsapp-share.png", // <-- could I add a required image here?
+        alt: "Share on WhatsApp",
+        caption: "Share on WhatsApp",
+        title: "Share on WhatsApp",
+      },
+    ],
   },
   {
     name: "Alerter",
@@ -251,27 +278,12 @@ function ProjectLinkButton(props) {
   }
 }
 
-const AppIcons = {
-  twit2nit: <Twit2NitIcon />,
-  Mor: <MorIcon />,
-  Alerter: <AlerterIcon />,
-  "invidi.link": <InvidilinkIcon />,
-};
-
-const Project = ({
-  name,
-  description,
-  repoUrl,
-  siteUrl,
-  ios,
-  web,
-  openfin,
-  opensource,
-}) => {
+const Project = (projectDetails) => {
   const { openOverlay } = useOverlay();
+  const { name, description, ios, web, openfin, opensource } = projectDetails;
 
   const handleOpenOverlay = () => {
-    openOverlay({ name, description }); // Pass the project data to the overlay
+    openOverlay(projectDetails);
   };
 
   return (

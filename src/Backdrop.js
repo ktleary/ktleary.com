@@ -12,10 +12,11 @@ const Overlay = styled(animated.div)`
   bottom: 0;
   left: 0;
   z-index: 7;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
   border-radius: 0;
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
 `;
 
