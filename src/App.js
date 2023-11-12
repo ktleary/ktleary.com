@@ -1,6 +1,7 @@
 import { prop } from "ramda";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Backdrop } from "./Backdrop";
 import { OverlayProvider } from "./OverlayContext";
 import About from "./components/about";
 import Code from "./components/code";
@@ -38,6 +39,7 @@ function App() {
         {view === views.about && <About />}
         {view === views.code && <Code />}
         {view === views.contact && <Contact />}
+        <Backdrop />
         <ProjectCard />
       </AppContainer>
     </OverlayProvider>
