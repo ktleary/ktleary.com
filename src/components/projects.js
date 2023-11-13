@@ -12,6 +12,13 @@ import alerter from "./assets/alerter/alerter.png";
 import twit2nitDefault from "./assets/twit2nit/twit2nit-default.png";
 import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
 import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
+import invidilinkDefault from "./assets/invidilink/invidilink-default.png";
+import invidilinkList from "./assets/invidilink/invidilink-list.png";
+import invidilinkInvidious from "./assets/invidilink/invidilink-invidious.png";
+import red4uDefault from "./assets/red4u/red4u-default.png";
+import red4uList from "./assets/red4u/red4u-list.png";
+import red4uViewInstance from "./assets/red4u/red4u-viewinstance.png";
+import seatgeekHome from "./assets/seatgeek/seatgeek-home.png";
 
 const projectData = [
   {
@@ -52,6 +59,25 @@ const projectData = [
     ],
   },
   {
+    name: "SeatGeek Home",
+    description: "2019",
+    repoUrl: null,
+    siteUrl: null,
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: false,
+    screenshots: [
+      {
+        src: seatgeekHome,
+        alt: "SeatGeek Home",
+        caption: "SeatGeek Home",
+        title: "Home Screen",
+        imageType: "desktop",
+      },
+    ],
+  },
+  {
     name: "Alerter",
     description: "Real-time price matches for bond traders.",
     repoUrl: null,
@@ -72,7 +98,7 @@ const projectData = [
   },
   {
     name: "twit2nit",
-    description: "View Twitter links on a healthy Nitter instance.",
+    description: "View Twitter links on a live Nitter instance.",
     repoUrl: "https://sr.ht/~djlooop/twit2nit/",
     siteUrl: "https://twit2nit.xyz",
     ios: false,
@@ -105,21 +131,69 @@ const projectData = [
   },
   {
     name: "invidi.link",
-    description:
-      "Convert YouTube links to invidious and redirect to a good instance.",
+    description: "View YouTube links on a live Invidious instance.",
     repoUrl: "https://sr.ht/~djlooop/invidi.link/",
     siteUrl: "https://invidi.link",
     ios: false,
     web: true,
     openfin: false,
     opensource: true,
+    screenshots: [
+      {
+        src: invidilinkDefault,
+        alt: "invidi.link",
+        caption: "invidi.link",
+        title: "invidi.link",
+        imageType: "desktop",
+      },
+      {
+        src: invidilinkList,
+        alt: "invidi.link",
+        caption: "invidi.link",
+        title: "invidi.link live instance list",
+        imageType: "desktop",
+      },
+      {
+        src: invidilinkInvidious,
+        alt: "invidi.link",
+        caption: "invidi.link",
+        title: "View on Invidious",
+        imageType: "desktop",
+      },
+    ],
   },
   {
-    name: "Termite Viewer",
-    description:
-      "Termite Viewer uses Natural Language Processing (NLP) to extract and analyze content from user-supplied URLs. ",
-    repoUrl: "https://git.sr.ht/~djlooop/termite.moe",
-    siteUrl: "https://termite.moe",
+    name: "red4u",
+    description: "View reddit links on a live Teddit or Libreddit instance.",
+    repoUrl: "https://sr.ht/~djlooop/red4u/",
+    siteUrl: "https://red4u.xyz",
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: true,
+    screenshots: [
+      {
+        src: red4uDefault,
+        alt: "red4u",
+        caption: "red4u",
+        title: "red4u",
+        imageType: "desktop",
+      },
+      {
+        src: red4uList,
+        alt: "red4u",
+        caption: "red4u",
+        title: "red4u live instance list",
+        imageType: "desktop",
+      },
+      {
+        src: red4uViewInstance,
+        alt: "red4u",
+        caption: "red4u",
+        title: "View on libreddit",
+        imageType: "desktop",
+      },
+    ],
   },
   {
     name: "Hegel",

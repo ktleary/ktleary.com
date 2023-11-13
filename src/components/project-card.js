@@ -25,6 +25,11 @@ const BackWrapper = styled.div`
   position: absolute;
   top: 16px;
   left: 16px;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Card = styled(animated.div)`
