@@ -8,11 +8,15 @@ import whatsAppShare from "./assets/mor/whatsapp-share.png";
 import socialprofile from "./assets/mor/social-profile.jpg";
 import homescreen from "./assets/mor/homescreen.jpg";
 import library from "./assets/mor/library.jpg";
+import alerter from "./assets/alerter/alerter.png";
+import twit2nitDefault from "./assets/twit2nit/twit2nit-default.png";
+import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
+import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
 
 const projectData = [
   {
     name: "Mor Life",
-    description: "The calendar that schedules you.",
+    description: "Discover events with friends.",
     repoUrl: null,
     siteUrl: null,
     ios: true,
@@ -24,13 +28,13 @@ const projectData = [
         src: homescreen,
         alt: "Mor Life Homescreen",
         caption: "Mor Life Homescreen",
-        title: "Mor Life Homescreen",
+        title: "Day View",
       },
       {
         src: library,
         alt: "Mor Life Library",
         caption: "Mor Life Library",
-        title: "Mor Life Library",
+        title: "Library",
       },
       {
         src: socialprofile,
@@ -49,25 +53,55 @@ const projectData = [
   },
   {
     name: "Alerter",
-    description:
-      "Alerter displays real-time price target matches for traders at a capital markets bank.",
+    description: "Real-time price matches for bond traders.",
     repoUrl: null,
     siteUrl: null,
     ios: false,
     web: false,
     openfin: true,
     opensource: false,
+    screenshots: [
+      {
+        src: alerter,
+        alt: "Alerter",
+        caption: "Alerter",
+        title: "Alerter",
+        imageType: "desktop",
+      },
+    ],
   },
   {
     name: "twit2nit",
-    description:
-      "View Twitter links and users on a known good Nitter instance.",
+    description: "View Twitter links on a healthy Nitter instance.",
     repoUrl: "https://sr.ht/~djlooop/twit2nit/",
     siteUrl: "https://twit2nit.xyz",
     ios: false,
     web: true,
     openfin: false,
     opensource: true,
+    screenshots: [
+      {
+        src: twit2nitDefault,
+        alt: "twit2nit",
+        caption: "twit2nit",
+        title: "twit2nit",
+        imageType: "mobile",
+      },
+      {
+        src: twit2nitList,
+        alt: "twit2nit",
+        caption: "twit2nit",
+        title: "twit2nit live instance list",
+        imageType: "mobile",
+      },
+      {
+        src: twit2nitNitter,
+        alt: "twit2nit",
+        caption: "twit2nit",
+        title: "View on Nitter",
+        imageType: "mobile",
+      },
+    ],
   },
   {
     name: "invidi.link",

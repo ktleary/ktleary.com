@@ -6,6 +6,19 @@ const Svg = styled(Icon)`
   width: 24px;
 `;
 
+const BackButton = ({ className }) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 -960 960 960"
+    className={className}
+  >
+    <path
+      fill="currentColor"
+      d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"
+    />
+  </Svg>
+);
+
 const CopyButton = ({ className }) => (
   <Svg title="Copy" viewBox="0 0 24 24" className={className}>
     <path d="M0 0h24v24H0z" fill="transparent" />
@@ -83,4 +96,5 @@ export {
   GitHubButton,
   EmailButton,
   SourceHutButton,
+  BackButton,
 };
