@@ -19,6 +19,10 @@ import red4uDefault from "./assets/red4u/red4u-default.png";
 import red4uList from "./assets/red4u/red4u-list.png";
 import red4uViewInstance from "./assets/red4u/red4u-viewinstance.png";
 import seatgeekHome from "./assets/seatgeek/seatgeek-home.png";
+import unitedplans from "./assets/optum/optum-united-plans.png";
+import unitedtotals from "./assets/optum/optum-united-totals.png";
+import squeebles from "./assets/squeebles/squeebles.png";
+import squeeblesDetail from "./assets/squeebles/squeebles-detail.png";
 
 const projectData = [
   {
@@ -79,7 +83,7 @@ const projectData = [
   },
   {
     name: "Alerter",
-    description: "Real-time price matches for bond traders.",
+    description: "Real-time price alerts for bond traders.",
     repoUrl: null,
     siteUrl: null,
     ios: false,
@@ -92,6 +96,58 @@ const projectData = [
         alt: "Alerter",
         caption: "Alerter",
         title: "Alerter",
+        imageType: "desktop",
+      },
+    ],
+  },
+  {
+    name: "UnitedHealth AARP",
+    description: "UnitedHealth's AARP Medicare app.",
+    repoUrl: null,
+    siteUrl: null,
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: false,
+    screenshots: [
+      {
+        src: unitedplans,
+        alt: "UnitedHealth AARP",
+        caption: "UnitedHealth AARP Plans",
+        title: "Plans",
+        imageType: "mobile",
+      },
+      {
+        src: unitedtotals,
+        alt: "UnitedHealth AARP",
+        caption: "UnitedHealth AARP Totals",
+        title: "Details",
+        imageType: "mobile",
+      },
+    ],
+  },
+  {
+    name: "Squeebles",
+    description: "A viral video site created for Cogo Labs.",
+    repoUrl: null,
+    siteUrl: null,
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: false,
+    screenshots: [
+      {
+        src: squeebles,
+        alt: "Squeebles",
+        caption: "Squeebles",
+        title: "Squeebles Home",
+        imageType: "desktop",
+      },
+      {
+        src: squeeblesDetail,
+        alt: "Squeebles",
+        caption: "Squeebles",
+        title: "Detail view",
         imageType: "desktop",
       },
     ],
@@ -194,34 +250,6 @@ const projectData = [
         imageType: "desktop",
       },
     ],
-  },
-  {
-    name: "Hegel",
-    description:
-      "Hegel app guides users through the Hegelian Dialectic by asking for  1)Concept: The idea you want to evolve. 2) Negation: What the original concept is not. 3) Synthesis: An idea which encompasses both the original and its negation.",
-    repoUrl: "https://git.sr.ht/~djlooop/hegel",
-    siteUrl: "https://stringtalk.org/hegel",
-  },
-  {
-    name: "Genstar",
-    description:
-      "Genstar is a web-based tool for interactively creating story lines including plot, conflict type, characters, character attributes and story setting. Click on any of part of the story line to replace it with a randomly generated replacement.",
-    repoUrl: "https://git.sr.ht/~djlooop/genstr",
-    siteUrl: "https://stringtalk.org/genstar/",
-  },
-  {
-    name: "Summer of Letters",
-    description:
-      "Summer of Letters is a tool for converting letters and words to numbers and sums.",
-    repoUrl: "https://git.sr.ht/~djlooop/summer-of-letters",
-    siteUrl: "https://stringtalk.org/summer-of-letters",
-  },
-  {
-    name: "Sentitext",
-    description:
-      "Sentiment Text Area is a React component which shows a sentiment score as you type. The NLP uses the AFINN word list approach to analysis.",
-    repoUrl: "https://git.sr.ht/~djlooop/senti-textarea",
-    siteUrl: "https://stringtalk.org/sentitext/",
   },
 ];
 
