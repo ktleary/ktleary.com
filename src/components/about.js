@@ -32,12 +32,11 @@ const About = always(
   <AboutContainer>
     <AboutHelmet />
     <p>
-      I'm a software developer and founder of{" "}
-      <AboutLink link="https://broadcove.io" linkText="Broadcove" /> with over
-      15 years of experience working on the net. Much of this time has been
-      spent working with startups as an independent contractor serving clients
-      in the financial, healthcare and e-commerce spaces. I am a web-standards
-      and open-source enthusiast and am a member of the{" "}
+      I'm a software developer focused on Javascript, with over 15 years of
+      experience working on the net. Much of this time has been spent working
+      with small companies serving large clients in the financial, healthcare
+      and e-commerce spaces. I am also a web-standards and open-source
+      enthusiast and am a member of the{" "}
       <AboutLink
         link="https://www.w3.org/community/schemaorg/"
         linkText="W3C schema.org Community Group"
@@ -47,20 +46,14 @@ const About = always(
     <p>
       On the front-end, I am currently writing in React and have lead projects
       in Angular, as well as enterprise upgrades from legacy codebases. On the
-      back-end, I typically use Node.js and Python and spent several years
-      implementing{" "}
-      <AboutLink
-        link="https://web.archive.org/web/20090123034204/http://170systems.com/"
-        linkText="a third party front-end for Oracle Applications"
-      />
-      .
+      back-end, I typically use Node.js and Python.
     </p>
     <p>
-      My roots are in writing Javascript and database applications in the
-      dot-com days when I helped build a successful e-learning company,
-      DigitalMed. I am a graduate of Skidmore College and a native of Greater
-      Boston, though I am now based out of New York City and my work has brought
-      me far and wide recently.
+      My roots are in writing Javascript and database applications in the good
+      old days when I helped build a successful e-learning company, DigitalMed.
+      I am a graduate of Skidmore College and a native of Greater Boston, though
+      I am now based out of New York City and my work has brought me far and
+      wide recently.
     </p>
     <p>
       When I'm not working, I enjoy{" "}

@@ -1,17 +1,16 @@
-import React from "react";
-import { CodeHelmet } from "./helmet";
 import { always, compose, prop } from "ramda";
+import React from "react";
 import styled from "styled-components";
-import RepoLinks, { repos } from "./repo-links";
-import Projects from "./projects";
 import { lowerCurrentTargetName } from "../fp";
+import { CodeHelmet } from "./helmet";
+import Projects from "./projects";
+import RepoLinks, { repos } from "./repo-links";
 
 const CodeContainer = styled.div`
   color: rgba(255, 255, 255, 0.78);
-  min-height: 100vw;
+  min-height: 100vh;
   height: 100%;
   margin: 32px auto;
-  max-width: 700px;
 `;
 
 const getUrl = (name) => prop("url", repos[name]);
@@ -23,7 +22,7 @@ const handleClick = (e) => {
 };
 
 const Code = always(
-  <CodeContainer data-testid="code-container">
+  <CodeContainer data-testid="projects-container">
     <CodeHelmet />
     <RepoLinks handleClick={handleClick} />
     <Projects />

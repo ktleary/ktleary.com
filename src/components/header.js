@@ -6,11 +6,12 @@ const TitleContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 16px auto 8px auto;
   padding: 0;
+  margin: 0;
   vertical-align: middle;
   text-align: center;
   width: 100%;
+  background: #212121;
 `;
 
 const Title = styled.h1`
