@@ -33,18 +33,7 @@ const BackWrapper = styled.div`
 `;
 
 const Card = styled(animated.div)`
-  /* Card styles */
   overflow-y: scroll;
-`;
-
-const ProjectCardStyled = styled.div`
-  position: fixed; /* or absolute */
-  top: 0;
-  left: 0;
-  width: 100%; /* Adjust as needed */
-  height: 100%; /* Adjust as needed */
-  z-index: 10;
-  /* Additional styling */
 `;
 
 const Header = styled.h1`
@@ -81,14 +70,6 @@ const ProjectIconWrapper = styled.div`
   width: 100%;
 `;
 
-// cardWhite: #FFFEFC; lightBackground: #F6F0E9
-// darkBackground: #212121; cardBlack: #1C1C1C
-// darkText: #221F1D; charcoal: #928C88
-// cream: '#F6EFE8';
-// taupe: '#E0D7CF';
-// smoke: '#C9BFB6';
-// link: '#44B5EE';
-
 const ScreenShotWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -118,13 +99,10 @@ const TopRow = styled.div`
 const ProjectCard = () => {
   const { overlayContent, closeOverlay } = useOverlay();
 
-  const { name, description, links, screenshots, imageType } =
-    overlayContent || {};
+  const { name, description, links, screenshots } = overlayContent || {};
 
   const overlayAnimation = useSpring({
-    opacity: overlayContent ? 1 : 0,
-
-    // other animation properties
+    opacity: overlayContent ? 0.9 : 0,
   });
 
   const cardAnimation = useSpring({

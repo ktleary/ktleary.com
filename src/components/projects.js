@@ -220,7 +220,7 @@ const projectData = [
   },
   {
     name: "red4u",
-    description: "View reddit links on a live Teddit or Libreddit instance.",
+    description: "View reddit links on libreddit or teddit.",
     repoUrl: "https://sr.ht/~djlooop/red4u/",
     siteUrl: "https://red4u.xyz",
     ios: false,

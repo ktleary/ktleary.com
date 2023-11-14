@@ -22,13 +22,13 @@ const AppIconWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   background: #0d47a1;
-  height: 64px;
-  min-height: 64px;
-  width: 64px;
-  min-width: 64px;
-  padding: 8px;
+  height: 72px;
+  min-height: 72px;
+  width: 72px;
+  min-width: 72px;
+ 
 `;
 
 const AlerterIcon = ({ icon, size, color, style }) => {
