@@ -32,7 +32,7 @@ const About = always(
   <AboutContainer>
     <AboutHelmet />
     <p>
-      I'm a software developer focused on Javascript, with over 15 years of
+      I'm a software developer focused on Javascript, with over 10 years of
       experience working on the net. Much of this time has been spent working
       with small companies serving large clients in the financial, healthcare
       and e-commerce spaces. I am also a web-standards and open-source
@@ -49,11 +49,10 @@ const About = always(
       back-end, I typically use Node.js and Python.
     </p>
     <p>
-      My roots are in writing Javascript and database applications in the good
-      old days when I helped build a successful e-learning company, DigitalMed.
-      I am a graduate of Skidmore College and a native of Greater Boston, though
-      I am now based out of New York City and my work has brought me far and
-      wide recently.
+      My roots are in writing Javascript and database applications, building a
+      successful e-learning company, DigitalMed. I am a graduate of Skidmore
+      College and a native of Greater Boston, though I am now based out of New
+      York City and my work has brought me far and wide recently.
     </p>
     <p>
       When I'm not working, I enjoy{" "}
