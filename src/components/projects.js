@@ -105,7 +105,7 @@ const projectData = [
     ],
   },
   {
-    name: "UnitedHealth AARP",
+    name: "United Health",
     description: "UnitedHealth's AARP Medicare app.",
     repoUrl: null,
     siteUrl: null,
@@ -302,7 +302,7 @@ const ProjectContainer = styled.div`
   margin: 16px 16px;
   padding: 0;
   padding: 16px;
-  width: 100%;
+  width: 80vw;
   @media (min-width: 800px) {
     width: 33%;
   }
@@ -330,6 +330,9 @@ const ProjectTitle = styled.h3`
   align-items: center;
   color: rgba(255, 255, 255, 0.87);
   font-size: 24px;
+  @media (max-width: 444px) {
+    font-size: 20px;
+  }
   font-weight: 700;
   display: flex;
   margin: 0;
