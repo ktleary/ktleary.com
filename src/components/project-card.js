@@ -102,7 +102,7 @@ const ProjectCard = () => {
   const { name, description, links, screenshots } = overlayContent || {};
 
   const overlayAnimation = useSpring({
-    opacity: overlayContent ? 0.9 : 0,
+    opacity: overlayContent ? 0.9 : 0.33,
   });
 
   const cardAnimation = useSpring({
@@ -125,7 +125,7 @@ const ProjectCard = () => {
           <Header>{name}</Header>
           <SubTitle>{description}</SubTitle>
           {screenshots.map((screenshot) => {
-            const width = screenshot?.imageType === "desktop" ? "40vw" : "20vw";
+            const width = screenshot?.imageType === "desktop" ? "60vw" : "40vw";
             return (
               <Fragment key={screenshot.src}>
                 <ScreenShotTitle>{screenshot.title}</ScreenShotTitle>

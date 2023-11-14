@@ -8,8 +8,8 @@ const Overlay = styled(animated.div)`
   display: flex;
   height: 100vh;
   width: 100vw;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  top: 0;
   left: 0;
   z-index: 7;
   background-color: rgba(0, 0, 0, 0.5);

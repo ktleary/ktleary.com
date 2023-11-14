@@ -8,7 +8,6 @@ const LabelWrapper = styled.div`
   border-radius: 100px;
   background: #414141;
   height: 18px;
- 
   padding: 2px 8px;
   color: rgba(255, 255, 255, 0.87);
   margin-right: 8px;
@@ -29,7 +28,7 @@ const LabelOpenFin = () => {
 };
 
 const LabelOpenSource = () => {
-  return <LabelWrapper>open source</LabelWrapper>;
+  return <LabelWrapper>open&nbsp;source</LabelWrapper>;
 };
 
 export { LabelIos, LabelWeb, LabelOpenFin, LabelOpenSource };

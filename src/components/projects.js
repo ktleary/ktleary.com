@@ -95,7 +95,7 @@ const projectData = [
         src: alerter,
         alt: "Alerter",
         caption: "Alerter",
-        title: "Alerter",
+        title: "Alerter with toast notification",
         imageType: "desktop",
       },
     ],
@@ -297,10 +297,10 @@ const ProjectContainer = styled.div`
   flex-direction: row;
   margin: 16px 16px;
   padding: 0;
-  height: 12vh;
-  padding: 1.5rem;
-  @media (min-width: 444px) {
-    width: 33vw;
+  padding: 16px;
+  width: 100%;
+  @media (min-width: 800px) {
+    width: 33%;
   }
   box-shadow: 0px 2px 3px rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transition properties */
@@ -360,9 +360,12 @@ const LinkContainer = styled.div`
 const ProjectIconWrapper = styled.div`
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-right: 8px;
-  width: 4vw;
+  width: 128px;
+  min-width: 88px;
+  background: #212121;
 `;
 
 const ProjectContentWrapper = styled.div`
