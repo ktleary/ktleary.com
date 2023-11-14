@@ -79,6 +79,15 @@ const ScreenShotWrapper = styled.div`
   margin-bottom: 24px;
 `;
 
+const ScreenShot = styled.img`
+  border-radius: 10px;
+  width: ${({ imageType }) => (imageType === "mobile" ? "20vw" : "60vw")};
+
+  @media (max-width: 800px) {
+    width: ${({ imageType }) => (imageType === "mobile" ? "50vw" : "80vw")};
+  }
+`;
+
 const ScreenShotTitle = styled.h3`
   color: rgba(255, 255, 255, 0.87);
   padding: 0;
@@ -130,10 +139,10 @@ const ProjectCard = () => {
               <Fragment key={screenshot.src}>
                 <ScreenShotTitle>{screenshot.title}</ScreenShotTitle>
                 <ScreenShotWrapper>
-                  <img
+                  <ScreenShot
                     src={screenshot.src}
                     alt="screenshot"
-                    style={{ width, borderRadius: 10 }}
+                    imageType={screenshot.imageType}
                   />
                 </ScreenShotWrapper>
               </Fragment>
