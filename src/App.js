@@ -37,7 +37,7 @@ function App() {
         <ProfileLinks handleViews={handleViews} view={view} />
         {view === views.landing && <Landing />}
         {view === views.about && <About />}
-        {view === views.code && <Code />}
+        {view === views.projects && <Code />}
         {view === views.contact && <Contact />}
         <Backdrop />
         <ProjectCard />
