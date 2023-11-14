@@ -125,7 +125,7 @@ const ProjectCard = () => {
           <Header>{name}</Header>
           <SubTitle>{description}</SubTitle>
           {screenshots.map((screenshot) => {
-            const width = screenshot?.imageType === "desktop" ? "60vw" : "40vw";
+            const width = screenshot?.imageType === "desktop" ? "60vw" : "20vw";
             return (
               <Fragment key={screenshot.src}>
                 <ScreenShotTitle>{screenshot.title}</ScreenShotTitle>
