@@ -1,10 +1,9 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import About from "../components/about";
 
-it("shows broadcove text on about", () => {
+it("contains text about being a software developer", () => {
   render(<About />);
-  const broadcove = screen.getByText("Broadcove");
-  expect(broadcove).toBeInTheDocument();
+  const regex = /software developer focused on Javascript/i; // Case-insensitive match
+  const textElement = screen.getByText(regex);
+  expect(textElement).toBeInTheDocument();
 });
-
-afterEach(cleanup);

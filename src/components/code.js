@@ -22,7 +22,7 @@ const handleClick = (e) => {
 };
 
 const Code = always(
-  <CodeContainer data-testid="code-container">
+  <CodeContainer data-testid="projects-container">
     <CodeHelmet />
     <RepoLinks handleClick={handleClick} />
     <Projects />

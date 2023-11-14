@@ -16,12 +16,12 @@ test("it renders an underline with color #ff8a65", () => {
   });
 });
 
-test("it renders the code view when view is set to code", () => {
-  const view = "code";
+test("it renders the projects view when view is set to projects", () => {
+  const view = "projects";
   const { getByTestId } = render(<App />);
   const node = getByTestId(`profile-link-${view}`);
   fireEvent.click(node, { target: { name: view } });
-  const codeContainer = getByTestId("code-container");
+  const codeContainer = getByTestId("projects-container");
   expect(codeContainer).toBeInTheDocument();
 });
 

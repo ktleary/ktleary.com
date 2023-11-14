@@ -418,9 +418,14 @@ function ProjectLinkButton(props) {
 }
 
 const Project = (projectDetails) => {
-  const { openOverlay } = useOverlay();
+  const overlayContext = useOverlay();
   const { name, description, ios, web, openfin, opensource } = projectDetails;
 
+  if (!overlayContext) {
+    return null;
+  }
+
+  const { openOverlay } = overlayContext || {};
   const handleOpenOverlay = () => {
     openOverlay(projectDetails);
   };
