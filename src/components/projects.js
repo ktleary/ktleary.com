@@ -74,7 +74,7 @@ const projectData = [
   },
   {
     name: "SeatGeek",
-    description: "SeatGeek Home and Listings in 2019.",
+    description: "Homescreen and Listings (2019)",
     content:
       "In 2019, I worked on the SeatGeek web app as a frontend engineer and implemented the home page redesign and and enhanced the ticket listing page with structured data and SEO improvements.",
     repoUrl: null,

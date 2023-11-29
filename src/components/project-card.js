@@ -59,7 +59,7 @@ const SubTitle = styled.h2`
   margin: 0;
   margin-bottom: 16px;
   text-align: center;
-  padding-top: 16px;
+  padding: 16px 8px;
   letter-spacing: -0.45px;
   font-size: 24px;
   font-weight: 500;
