@@ -120,7 +120,7 @@ const projectData = [
     name: "United Health",
     description: "UnitedHealth's AARP Medicare app.",
     repoUrl: null,
-    siteUrl: null,
+    siteUrl: "https://www.aarpmedicareplans.com/",
     ios: false,
     web: true,
     openfin: false,
@@ -171,7 +171,7 @@ const projectData = [
   {
     name: "twit2nit",
     description: "View Twitter links on a live Nitter instance.",
-    repoUrl: "https://sr.ht/~djlooop/twit2nit/",
+    repoUrl: "https://github.com/ktleary/twit2nit.xyz",
     siteUrl: "https://twit2nit.xyz",
     ios: false,
     web: true,
@@ -204,7 +204,7 @@ const projectData = [
   {
     name: "invidi.link",
     description: "View YouTube links on a live Invidious instance.",
-    repoUrl: "https://sr.ht/~djlooop/invidi.link/",
+    repoUrl: "https://github.com/ktleary/invidi.link",
     siteUrl: "https://invidi.link",
     ios: false,
     web: true,

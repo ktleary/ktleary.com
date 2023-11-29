@@ -6,6 +6,7 @@ import { FocusOn } from "react-focus-on";
 import AppIcons from "./app-icons/AppIcons";
 import { BackButton } from "./buttons";
 import ViewOnWebButton from "./app-icons/ViewOnWebButton";
+import ViewOnGithubButton from "./app-icons/ViewOnGithubButton";
 
 const Overlay = styled(animated.div)`
   position: fixed;
@@ -137,7 +138,7 @@ const ButtonRow = styled.div`
 const ProjectCard = () => {
   const { overlayContent, closeOverlay } = useOverlay();
 
-  const { name, description, links, screenshots, content, siteUrl } =
+  const { name, description, links, screenshots, content, siteUrl, repoUrl } =
     overlayContent || {};
 
   const overlayAnimation = useSpring({
@@ -163,7 +164,10 @@ const ProjectCard = () => {
 
           <Header>{name}</Header>
           <SubTitle>{description}</SubTitle>
-          <ButtonRow>{siteUrl && <ViewOnWebButton url={siteUrl} />}</ButtonRow>
+          <ButtonRow>
+            {siteUrl && <ViewOnWebButton url={siteUrl} />}
+            {repoUrl && <ViewOnGithubButton url={repoUrl} />}
+          </ButtonRow>
           {screenshots.map((screenshot) => {
             return (
               <Fragment key={screenshot.src}>
