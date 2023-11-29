@@ -114,7 +114,7 @@ const ContentWrapper = styled.div`
   max-width: 600px;
   margin: auto;
   font-size: 18px;
-  padding: 0 16px;
+  padding: 0 32px;
   @media (max-width: 400px) {
     padding: 0 32px;
   }
@@ -133,6 +133,19 @@ const ButtonRow = styled.div`
   justify-content: center;
   margin-top: 24px;
   margin-bottom: 12px;
+`;
+
+const AboutWrapper = styled.h3`
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0;
+  margin: 0;
+  margin-bottom: 16px;
+  text-align: center;
+  padding-top: 16px;
+  letter-spacing: -0.45px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: -apple-system, "OpenSans", "Segoe UI", "Roboto", "Oxygen";
 `;
 
 const ProjectCard = () => {
@@ -182,13 +195,16 @@ const ProjectCard = () => {
               </Fragment>
             );
           })}
-          <ContentWrapper>
-            {content?.split("\n")?.map((paragraph) => {
-              return (
-                <ContentSection key={paragraph}>{paragraph}</ContentSection>
-              );
-            })}
-          </ContentWrapper>
+          {content && (
+            <ContentWrapper>
+              <AboutWrapper>About</AboutWrapper>
+              {content?.split("\n")?.map((paragraph) => {
+                return (
+                  <ContentSection key={paragraph}>{paragraph}</ContentSection>
+                );
+              })}
+            </ContentWrapper>
+          )}
         </Card>
       </Overlay>
     </FocusOn>
