@@ -2,32 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import { useOverlay } from "../OverlayContext";
 import AppIcons from "./app-icons/AppIcons";
-import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
-import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
-import whatsAppShare from "./assets/mor/whatsapp-share.png";
-import socialprofile from "./assets/mor/social-profile.jpg";
+import alerter from "./assets/alerter/alerter.png";
+import invidilinkDefault from "./assets/invidilink/invidilink-default.png";
+import invidilinkInvidious from "./assets/invidilink/invidilink-invidious.png";
+import invidilinkList from "./assets/invidilink/invidilink-list.png";
 import homescreen from "./assets/mor/homescreen.jpg";
 import library from "./assets/mor/library.jpg";
-import alerter from "./assets/alerter/alerter.png";
-import twit2nitDefault from "./assets/twit2nit/twit2nit-default.png";
-import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
-import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
-import invidilinkDefault from "./assets/invidilink/invidilink-default.png";
-import invidilinkList from "./assets/invidilink/invidilink-list.png";
-import invidilinkInvidious from "./assets/invidilink/invidilink-invidious.png";
+import socialprofile from "./assets/mor/social-profile.jpg";
+import whatsAppShare from "./assets/mor/whatsapp-share.png";
+import unitedplans from "./assets/optum/optum-united-plans.png";
+import unitedtotals from "./assets/optum/optum-united-totals.png";
 import red4uDefault from "./assets/red4u/red4u-default.png";
 import red4uList from "./assets/red4u/red4u-list.png";
 import red4uViewInstance from "./assets/red4u/red4u-viewinstance.png";
 import seatgeekHome from "./assets/seatgeek/seatgeek-home.png";
-import unitedplans from "./assets/optum/optum-united-plans.png";
-import unitedtotals from "./assets/optum/optum-united-totals.png";
-import squeebles from "./assets/squeebles/squeebles.png";
+import seatgeekListing from "./assets/seatgeek/seatgeek-listing.png";
 import squeeblesDetail from "./assets/squeebles/squeebles-detail.png";
+import squeebles from "./assets/squeebles/squeebles.png";
+import twit2nitDefault from "./assets/twit2nit/twit2nit-default.png";
+import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
+import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
+import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
+import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
 
 const projectData = [
   {
     name: "Mor Life",
     description: "Discover events with friends.",
+    content:
+      "Mor Life is a social event creation and discovery app that allows users to create events and invite friends. Users can also share events on social media apps such as WhatsApp.\n\nThe app features a day view, a library of events, and a social profile to display a gallery of events.\n\nUsers can find and follow friends, and view their events in a social feed.\n\nThe app was built with React Native, and is currently available on the web and as an iOS app on TestFlight.",
     repoUrl: null,
     siteUrl: null,
     ios: true,
@@ -67,10 +70,12 @@ const projectData = [
     ],
   },
   {
-    name: "SeatGeek Home",
-    description: "2019",
+    name: "SeatGeek",
+    description: "SeatGeek Home and Listings in 2019.",
+    content:
+      "In 2019, I worked on the SeatGeek web app as a frontend engineer and implemented the home page redesign and and enhanced the ticket listing page with structured data and SEO improvements.",
     repoUrl: null,
-    siteUrl: null,
+    siteUrl: "https://seatgeek.com",
     ios: false,
     web: true,
     openfin: false,
@@ -81,6 +86,13 @@ const projectData = [
         alt: "SeatGeek Home",
         caption: "SeatGeek Home",
         title: "Home Screen",
+        imageType: "desktop",
+      },
+      {
+        src: seatgeekListing,
+        alt: "SeatGeek Listing",
+        caption: "SeatGeek Listing",
+        title: "Ticket Listing",
         imageType: "desktop",
       },
     ],

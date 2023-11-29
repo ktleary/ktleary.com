@@ -5,6 +5,7 @@ import { useOverlay } from "../OverlayContext";
 import { FocusOn } from "react-focus-on";
 import AppIcons from "./app-icons/AppIcons";
 import { BackButton } from "./buttons";
+import ViewOnWebButton from "./app-icons/ViewOnWebButton";
 
 const Overlay = styled(animated.div)`
   position: fixed;
@@ -18,7 +19,8 @@ const Overlay = styled(animated.div)`
   margin-top: 10vh;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding-top: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
 `;
 
 const BackWrapper = styled.div`
@@ -43,7 +45,7 @@ const Header = styled.h1`
   text-align: center;
   padding-top: 8px;
   letter-spacing: -0.45px;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   font-family: -apple-system, "OpenSans", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans,
@@ -56,10 +58,10 @@ const SubTitle = styled.h2`
   margin: 0;
   margin-bottom: 16px;
   text-align: center;
-  padding-top: 8px;
+  padding-top: 16px;
   letter-spacing: -0.45px;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   font-family: -apple-system, "OpenSans", "Segoe UI", "Roboto", "Oxygen";
 `;
 
@@ -105,10 +107,38 @@ const TopRow = styled.div`
   flex-direction: row;
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  font-size: 18px;
+  padding: 0 16px;
+  @media (max-width: 400px) {
+    padding: 0 32px;
+  }
+`;
+
+const ContentSection = styled.p`
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+`;
+
+const ButtonRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 12px;
+`;
+
 const ProjectCard = () => {
   const { overlayContent, closeOverlay } = useOverlay();
 
-  const { name, description, links, screenshots } = overlayContent || {};
+  const { name, description, links, screenshots, content, siteUrl } =
+    overlayContent || {};
 
   const overlayAnimation = useSpring({
     opacity: overlayContent ? 0.9 : 0.33,
@@ -133,8 +163,8 @@ const ProjectCard = () => {
 
           <Header>{name}</Header>
           <SubTitle>{description}</SubTitle>
+          <ButtonRow>{siteUrl && <ViewOnWebButton url={siteUrl} />}</ButtonRow>
           {screenshots.map((screenshot) => {
-            const width = screenshot?.imageType === "desktop" ? "60vw" : "20vw";
             return (
               <Fragment key={screenshot.src}>
                 <ScreenShotTitle>{screenshot.title}</ScreenShotTitle>
@@ -148,6 +178,13 @@ const ProjectCard = () => {
               </Fragment>
             );
           })}
+          <ContentWrapper>
+            {content?.split("\n")?.map((paragraph) => {
+              return (
+                <ContentSection key={paragraph}>{paragraph}</ContentSection>
+              );
+            })}
+          </ContentWrapper>
         </Card>
       </Overlay>
     </FocusOn>
