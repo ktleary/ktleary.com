@@ -24,6 +24,9 @@ import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
 import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
 import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
 import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
+import tailspinHome from "./assets/tailspin/tailspin-home.png";
+import tailspinQuery from "./assets/tailspin/tailspin-query.png";
+import tailspinResults from "./assets/tailspin/tailspin-results.png";
 
 const projectData = [
   {
@@ -100,6 +103,8 @@ const projectData = [
   {
     name: "Alerter",
     description: "Real-time price alerts for bond traders.",
+    content:
+      "Alerter was built with Angular, WebSockets and OpenFin, a secure wrapper for Chromium used in financial services. The app is used by bond traders at a top capital markets bank to receive real-time price alerts for bonds they are trading, enabling faster execution and better pricing.",
     repoUrl: null,
     siteUrl: null,
     ios: false,
@@ -119,8 +124,10 @@ const projectData = [
   {
     name: "United Health",
     description: "UnitedHealth's AARP Medicare app.",
+    content:
+      "UnitedHealth engaged Optum's web development team to build a mobile web app for AARP Medicare plans. The app was built with an Angular frontend and a Java backend.",
     repoUrl: null,
-    siteUrl: null,
+    siteUrl: "https://www.aarpmedicareplans.com/",
     ios: false,
     web: true,
     openfin: false,
@@ -145,6 +152,8 @@ const projectData = [
   {
     name: "Squeebles",
     description: "A viral video site created for Cogo Labs.",
+    content:
+      "Squeebles was a viral video site created for Cogo Labs to encourage users to like and share videos on Facebook. Facebook Graph API was used to track likes and shares as well as gather emails from interested users.",
     repoUrl: null,
     siteUrl: null,
     ios: false,
@@ -169,9 +178,46 @@ const projectData = [
     ],
   },
   {
+    name: "Tailspin",
+    description: "Interactive AI Story Generator.",
+    content:
+      "Tailspin is an interactive AI story generator that uses OpenAI's GPT-3.5-instruct. Users create a prompt by pressing on story elements to change the story. A prompt is generated from the user's selections and sent to the backend to generate a story. The story is then displayed to the user.\n\nThe frontend is built with React and the backend is built with Express.",
+    repoUrl: "https://github.com/ktleary/tailspin-client",
+    siteUrl: "https://tailspin.fun",
+    ios: false,
+    web: true,
+    openfin: false,
+    opensource: true,
+    screenshots: [
+      {
+        src: tailspinHome,
+        alt: "Tailspin",
+        caption: "Tailspin",
+        title: "Tailspin Home",
+        imageType: "desktop",
+      },
+      {
+        src: tailspinQuery,
+        alt: "Tailspin",
+        caption: "Tailspin",
+        title: "Tailspin Query",
+        imageType: "desktop",
+      },
+      {
+        src: tailspinResults,
+        alt: "Tailspin",
+        caption: "Tailspin",
+        title: "Tailspin Results",
+        imageType: "desktop",
+      },
+    ],
+  },
+  {
     name: "twit2nit",
     description: "View Twitter links on a live Nitter instance.",
-    repoUrl: "https://sr.ht/~djlooop/twit2nit/",
+    content:
+      "twit2nit works by querying a list of Nitter instances to determine which are live. Users can enter a Twitter (X) username or link, and twit2nit will redirect to a live Nitter instance.\n\nThe frontend is built with React and the backend is built with Express.",
+    repoUrl: "https://github.com/ktleary/twit2nit.xyz",
     siteUrl: "https://twit2nit.xyz",
     ios: false,
     web: true,
@@ -204,7 +250,8 @@ const projectData = [
   {
     name: "invidi.link",
     description: "View YouTube links on a live Invidious instance.",
-    repoUrl: "https://sr.ht/~djlooop/invidi.link/",
+    content: `invidi.link works by retrieving a list of healthy Invidious instances from invidios.io. Users can enter a YouTube url, and invidi.link will redirect to a live Invidious instance.\n\nThe frontend is built with React and the backend is built with Express.`,
+    repoUrl: "https://github.com/ktleary/invidi.link",
     siteUrl: "https://invidi.link",
     ios: false,
     web: true,
@@ -237,7 +284,9 @@ const projectData = [
   {
     name: "red4u",
     description: "View reddit links on libreddit or teddit.",
-    repoUrl: "https://sr.ht/~djlooop/red4u/",
+    content:
+      "red4u works by querying a list of libreddit or teddit instances to determine which are live. Users can enter a reddit username or link, and red4u will redirect to a live libreddit or teddit instance.\n\nThe frontend is built with React and the backend is built with Express.",
+    repoUrl: "https://github.com/ktleary/red4u.xyz",
     siteUrl: "https://red4u.xyz",
     ios: false,
     web: true,
