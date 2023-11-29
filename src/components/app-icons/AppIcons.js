@@ -7,6 +7,7 @@ import Red4UIcon from "./Red4UIcon";
 import SeatGeekIcon2019 from "./SeatGeekIcon2019";
 import UnitedAarpIcon from "./UnitedAarpIcon";
 import SqueeblesIcon from "./Squeebles";
+import TailSpinIcon from "./TailSpinIcon";
 
 const AppIcons = {
   twit2nit: <Twit2NitIcon />,
@@ -14,9 +15,10 @@ const AppIcons = {
   Alerter: <AlerterIcon />,
   "invidi.link": <InvidilinkIcon />,
   red4u: <Red4UIcon />,
-  "SeatGeek": <SeatGeekIcon2019 />,
+  SeatGeek: <SeatGeekIcon2019 />,
   "United Health": <UnitedAarpIcon />,
   Squeebles: <SqueeblesIcon />,
+  Tailspin: <TailSpinIcon />,
 };
 
 export default AppIcons;
