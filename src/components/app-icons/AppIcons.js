@@ -14,7 +14,7 @@ const AppIcons = {
   Alerter: <AlerterIcon />,
   "invidi.link": <InvidilinkIcon />,
   red4u: <Red4UIcon />,
-  "SeatGeek Home": <SeatGeekIcon2019 />,
+  "SeatGeek": <SeatGeekIcon2019 />,
   "United Health": <UnitedAarpIcon />,
   Squeebles: <SqueeblesIcon />,
 };

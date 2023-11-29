@@ -2,27 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import { useOverlay } from "../OverlayContext";
 import AppIcons from "./app-icons/AppIcons";
-import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
-import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
-import whatsAppShare from "./assets/mor/whatsapp-share.png";
-import socialprofile from "./assets/mor/social-profile.jpg";
+import alerter from "./assets/alerter/alerter.png";
+import invidilinkDefault from "./assets/invidilink/invidilink-default.png";
+import invidilinkInvidious from "./assets/invidilink/invidilink-invidious.png";
+import invidilinkList from "./assets/invidilink/invidilink-list.png";
 import homescreen from "./assets/mor/homescreen.jpg";
 import library from "./assets/mor/library.jpg";
-import alerter from "./assets/alerter/alerter.png";
-import twit2nitDefault from "./assets/twit2nit/twit2nit-default.png";
-import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
-import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
-import invidilinkDefault from "./assets/invidilink/invidilink-default.png";
-import invidilinkList from "./assets/invidilink/invidilink-list.png";
-import invidilinkInvidious from "./assets/invidilink/invidilink-invidious.png";
+import socialprofile from "./assets/mor/social-profile.jpg";
+import whatsAppShare from "./assets/mor/whatsapp-share.png";
+import unitedplans from "./assets/optum/optum-united-plans.png";
+import unitedtotals from "./assets/optum/optum-united-totals.png";
 import red4uDefault from "./assets/red4u/red4u-default.png";
 import red4uList from "./assets/red4u/red4u-list.png";
 import red4uViewInstance from "./assets/red4u/red4u-viewinstance.png";
 import seatgeekHome from "./assets/seatgeek/seatgeek-home.png";
-import unitedplans from "./assets/optum/optum-united-plans.png";
-import unitedtotals from "./assets/optum/optum-united-totals.png";
-import squeebles from "./assets/squeebles/squeebles.png";
+import seatgeekListing from "./assets/seatgeek/seatgeek-listing.png";
 import squeeblesDetail from "./assets/squeebles/squeebles-detail.png";
+import squeebles from "./assets/squeebles/squeebles.png";
+import twit2nitDefault from "./assets/twit2nit/twit2nit-default.png";
+import twit2nitList from "./assets/twit2nit/twit2nit-list.png";
+import twit2nitNitter from "./assets/twit2nit/twit2nit-nitter.png";
+import { GenericLinkButton, GitHubButton, SourceHutButton } from "./buttons";
+import { LabelIos, LabelOpenFin, LabelOpenSource, LabelWeb } from "./labels";
 
 const projectData = [
   {
@@ -67,7 +68,7 @@ const projectData = [
     ],
   },
   {
-    name: "SeatGeek Home",
+    name: "SeatGeek",
     description: "2019",
     repoUrl: null,
     siteUrl: null,
@@ -81,6 +82,13 @@ const projectData = [
         alt: "SeatGeek Home",
         caption: "SeatGeek Home",
         title: "Home Screen",
+        imageType: "desktop",
+      },
+      {
+        src: seatgeekListing,
+        alt: "SeatGeek Listing",
+        caption: "SeatGeek Listing",
+        title: "Listing",
         imageType: "desktop",
       },
     ],
